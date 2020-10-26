@@ -1,7 +1,6 @@
-import { UPDATE_SETTINGS } from './actypes';
+import { UPDATE_QUESTION_TYPES } from './actypes';
 
 const defaultState = {
-  // 各题型数量
   questionTypes: {
     fillBlank: 4,
     judge: 3,
@@ -11,10 +10,13 @@ const defaultState = {
 
 const reducer = (prevState = defaultState, action) => {
   switch (action.type) {
-    // 更新生成设置
-    case UPDATE_SETTINGS:
-      return Object.assign({}, prevState, action.value);
-    // 初始化
+    // update question types
+    case UPDATE_QUESTION_TYPES:
+      return Object.assign({}, prevState, {
+        // data from `action` only has one key, need to merge with `prevState`
+        questionTypes: { ...prevState.questionTypes, ...action.value },
+      });
+    // init
     default:
       return prevState;
   }

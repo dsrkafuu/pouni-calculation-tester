@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-/* reducers */
+// reducers
 import { reducer as start } from '../views/Start/store';
 
 // combine reducers

@@ -6,3 +6,8 @@ body {
   font-size: $font-size-base;
   font-family: $font-family-base;
 }
+
+#root {
+  max-width: 900px;
+  margin: 0 auto;
+}

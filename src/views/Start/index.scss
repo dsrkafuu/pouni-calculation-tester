@@ -1,0 +1,27 @@
+@import '../../variables.scss';
+
+.start {
+  .question-types {
+    margin: $margin-md;
+  }
+
+  .question-types-item {
+    margin-top: $margin-sm;
+    display: flex;
+    flex-wrap: wrap;
+
+    span {
+      display: block;
+      flex: 0 0 100%;
+    }
+
+    .ant-slider {
+      flex: 1 1 auto;
+    }
+    .ant-input-number {
+      flex: 0 0 auto;
+      width: 5rem;
+      margin-left: 0.25rem;
+    }
+  }
+}

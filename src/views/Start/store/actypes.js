@@ -1,2 +1,2 @@
-// 更新题目生成设置
-export const UPDATE_SETTINGS = 'DSRKAFUU__UPDATE_SETTINGS';
+// update question types
+export const UPDATE_QUESTION_TYPES = 'DSRKAFUU__UPDATE_QUESTION_TYPES';

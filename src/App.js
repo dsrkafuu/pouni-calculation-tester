@@ -1,4 +1,4 @@
-/* deps */
+// deps
 import React from 'react';
 import { Switch, Route, Link, useRouteMatch, withRouter, Redirect } from 'react-router-dom';
 import { Menu } from 'antd';
@@ -8,11 +8,11 @@ import {
   HistoryOutlined,
   InfoCircleOutlined,
 } from '@ant-design/icons';
-/* views */
+// views
 import Start from './views/Start';
 
 /**
- * 应用主界面
+ * app main page
  */
 const App = withRouter(({ history }) => {
   // router match
@@ -40,7 +40,7 @@ const App = withRouter(({ history }) => {
       text: '关于',
     },
   ];
-  // DOM
+
   return (
     <div className="app">
       <Menu className="app-nav" mode="horizontal" selectedKeys={[history.location.pathname]}>

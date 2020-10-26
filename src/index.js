@@ -1,18 +1,18 @@
-/* deps */
+// deps
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-/* css */
+// css
 import 'normalize.css';
 import './index.scss';
-/* antd config provider */
+// antd config provider
 import { ConfigProvider } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
-/* views */
+// views
 import Home from './views/Home';
 import App from './App';
-/* store */
+// store
 import store from './store';
 
 ReactDOM.render(

@@ -4,7 +4,7 @@ import HomeChecked from '../../assets/svg/HomeChecked.svg';
 import './index.scss';
 
 /**
- * 主页/引导页
+ * home page
  */
 function Home() {
   return (

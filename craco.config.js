@@ -4,7 +4,7 @@ module.exports = {
       plugin: require('craco-antd'),
       options: {
         customizeTheme: {
-          '@primary-color': '#7c91bd',
+          '@primary-color': '#ff7a45',
           '@border-radius-base': '3px',
         },
       },

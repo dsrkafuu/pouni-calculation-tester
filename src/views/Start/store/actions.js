@@ -1,11 +1,11 @@
-import { UPDATE_SETTINGS } from './actypes';
+import { UPDATE_QUESTION_TYPES } from './actypes';
 
 /**
- * 更新题目生成设置
+ * update question types
  */
-export const getActUpdateSettings = (value) => {
+export const actionUpdateQuestionTypes = (value) => {
   return {
-    type: UPDATE_SETTINGS,
+    type: UPDATE_QUESTION_TYPES,
     value,
   };
 };
