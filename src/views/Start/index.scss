@@ -83,3 +83,19 @@
     }
   }
 }
+
+// styles on mobile
+@media screen and (max-width: 768px) {
+  .start {
+    .question-types {
+      margin-bottom: 0;
+    }
+    .question-settings {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .question-ctrl {
+      margin-top: 0;
+    }
+  }
+}

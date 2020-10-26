@@ -12,7 +12,7 @@ function Start() {
   return (
     <div className="start">
       <Row gutter={[0, 32]}>
-        <Col span={8}>
+        <Col xs={24} md={8}>
           <div className="question-types">
             <h3>类型与数量调整</h3>
             <QuestionType typeText="填空题" typeKey="fillBlank" />
@@ -20,10 +20,10 @@ function Start() {
             <QuestionType typeText="选择题" typeKey="select" />
           </div>
         </Col>
-        <Col span={8}>
+        <Col xs={24} md={8}>
           <QuestionSettings />
         </Col>
-        <Col span={8}>
+        <Col xs={24} md={8}>
           <QuestionCtrl />
         </Col>
       </Row>

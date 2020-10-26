@@ -9,11 +9,11 @@ function Footer(props) {
       <div className="footer-content">
         <div>
           <CopyrightOutlined />
-          <span>&nbsp;Copyright 2020 DSRKafuU with Apache-2.0 License</span>
+          <span>&nbsp;Copyright 2020 DSRKafuU | Apache-2.0 License</span>
         </div>
         <div>
           <AntDesignOutlined />
-          <span>&nbsp;B18030620 2020.10.26</span>
+          <span>&nbsp;B18030620 | 2020.10.26</span>
         </div>
       </div>
     </div>

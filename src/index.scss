@@ -6,17 +6,18 @@ body {
   font-size: $font-size-base;
   font-family: $font-family-base;
   background-color: #f0f2f5 !important;
+  min-height: 100vh;
 }
 
 #root {
   max-width: 900px;
   margin: 0 auto;
   background-color: #fff !important;
-  height: 100%;
+  min-height: 100vh;
 }
 
 .app {
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   .app-nav {
@@ -38,5 +39,11 @@ body {
   }
   & > div:last-child {
     margin-left: $margin-xs;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
