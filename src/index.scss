@@ -5,9 +5,38 @@ html,
 body {
   font-size: $font-size-base;
   font-family: $font-family-base;
+  background-color: #f0f2f5 !important;
 }
 
 #root {
   max-width: 900px;
   margin: 0 auto;
+  background-color: #fff !important;
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .app-nav {
+    flex: 0 0 auto;
+  }
+  .app-content {
+    flex: 1 1 auto;
+  }
+}
+
+.footer-content {
+  flex: 0 0 auto;
+  display: flex;
+  padding-bottom: $margin-md;
+  justify-content: center;
+
+  & > div:first-child {
+    margin-right: $margin-xs;
+  }
+  & > div:last-child {
+    margin-left: $margin-xs;
+  }
 }

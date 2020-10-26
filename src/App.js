@@ -9,6 +9,7 @@ import {
   InfoCircleOutlined,
 } from '@ant-design/icons';
 // views
+import Footer from './components/Footer';
 import Start from './views/Start';
 
 /**
@@ -62,6 +63,7 @@ const App = withRouter(({ history }) => {
           <Redirect to="/" />
         </Switch>
       </div>
+      <Footer divider={true} />
     </div>
   );
 });

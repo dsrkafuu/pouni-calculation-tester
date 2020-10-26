@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import HomeChecked from '../../assets/svg/HomeChecked.svg';
 import './index.scss';
 
+import Footer from '../../components/Footer';
+
 /**
  * home page
  */
@@ -23,9 +25,7 @@ function Home() {
           </Space>
         </div>
       </div>
-      <div className="home-footer">
-        <span>Copyright DSRKafuU (B18030620) | Apache-2.0 License</span>
-      </div>
+      <Footer divider={false} />
     </div>
   );
 }
