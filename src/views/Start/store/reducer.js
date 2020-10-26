@@ -2,9 +2,9 @@ import { UPDATE_QUESTION_TYPES } from './actypes';
 
 const defaultState = {
   questionTypes: {
-    fillBlank: 4,
-    judge: 3,
-    select: 3,
+    fillBlank: 5,
+    judge: 5,
+    select: 5,
   },
 };
 
