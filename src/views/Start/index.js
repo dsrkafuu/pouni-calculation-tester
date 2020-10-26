@@ -6,6 +6,7 @@ import './index.scss';
 // components
 import QuestionType from './components/QuestionType';
 import QuestionSettings from './components/QuestionSettings';
+import QuestionCtrl from './components/QuestionCtrl';
 
 function Start() {
   return (
@@ -22,7 +23,9 @@ function Start() {
         <Col span={8}>
           <QuestionSettings />
         </Col>
-        <Col span={8}></Col>
+        <Col span={8}>
+          <QuestionCtrl />
+        </Col>
       </Row>
     </div>
   );

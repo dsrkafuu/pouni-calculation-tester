@@ -2,7 +2,8 @@
 
 .start {
   .question-types,
-  .question-settings {
+  .question-settings,
+  .question-ctrl {
     margin: $margin-md;
   }
 
@@ -66,6 +67,19 @@
       .ant-select {
         width: 4rem;
       }
+    }
+  }
+}
+
+.question-ctrl {
+  margin: $margin-md;
+
+  button {
+    margin-top: $margin-md;
+    width: 80%;
+
+    &:nth-child(2) {
+      margin-top: $margin-xxs;
     }
   }
 }
