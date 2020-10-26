@@ -11,9 +11,9 @@ import { Slider, InputNumber } from 'antd';
  * @param {string} typeKey type key
  */
 function QuestionType(props) {
+  const dispatch = useDispatch();
   // get data from props
   const { typeText, typeKey } = props;
-  const dispatch = useDispatch();
   // get question type numbers
   const number = useSelector((state) => state.start.questionTypes[typeKey]);
   /**
@@ -24,7 +24,8 @@ function QuestionType(props) {
     if (isNaN(value)) {
       return;
     }
-    dispatch(actionUpdateQuestionTypes({ [typeKey]: value }));
+    // dispatch update
+    return dispatch(actionUpdateQuestionTypes({ [typeKey]: value }));
   };
 
   return (

@@ -1,7 +1,8 @@
 @import '../../variables.scss';
 
 .start {
-  .question-types {
+  .question-types,
+  .question-settings {
     margin: $margin-md;
   }
 
@@ -21,7 +22,50 @@
     .ant-input-number {
       flex: 0 0 auto;
       width: 5rem;
-      margin-left: 0.25rem;
+      margin-left: 0.65rem;
+    }
+  }
+
+  .question-settings-item {
+    margin-top: $margin-sm;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    .ant-radio-group {
+      flex: 1 1 auto;
+      display: flex;
+      & > label {
+        flex: 1 1 auto;
+        text-align: center;
+      }
+    }
+    &:nth-child(2) {
+      span:first-child {
+        flex: 0 0 auto;
+        margin-right: $margin-md;
+      }
+    }
+    &:nth-child(3) {
+      & > span:first-child {
+        flex: 1 1 100%;
+        margin-bottom: $margin-xxs;
+      }
+      & > span:last-child {
+        flex: 0 0 auto;
+        margin-left: $margin-md;
+      }
+    }
+    &:nth-child(4),
+    &:nth-child(5) {
+      .ant-select,
+      button {
+        margin-left: $margin-sm;
+      }
+      .ant-select {
+        width: 4rem;
+      }
     }
   }
 }
