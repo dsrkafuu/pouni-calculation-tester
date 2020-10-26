@@ -15,11 +15,6 @@
   .home-title-logo {
     height: 12rem;
   }
-  .home-title-btns {
-    & > * + * {
-      margin-left: 1.5rem;
-    }
-  }
 
   .home-footer {
     flex: 0 0 auto;
@@ -30,22 +25,5 @@
     align-items: center;
     font-size: $font-size-xl;
     margin: 1rem;
-  }
-  .home-footer-logo {
-    height: 2rem;
-    pointer-events: none;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .home-footer-logo {
-      animation: logo-spin infinite 20s linear;
-    }
-  }
-  @keyframes logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
   }
 }
