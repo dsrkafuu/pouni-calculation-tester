@@ -1,0 +1,8 @@
+@import './variables.scss';
+
+/* global rules */
+html,
+body {
+  font-size: $font-size-base;
+  font-family: $font-family-base;
+}

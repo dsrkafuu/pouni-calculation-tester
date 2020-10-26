@@ -3,24 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^4.7.3",
+    "@craco/craco": "~5.7.0",
+    "antd": "~4.7.3",
+    "craco-antd": "~1.19.0",
     "node-sass": "~4.14.1",
-    "normalize.css": "^8.0.1",
+    "normalize.css": "~8.0.1",
     "react": "~17.0.1",
     "react-dom": "~17.0.1",
     "react-redux": "~7.2.1",
     "react-router": "~5.2.0",
     "react-router-dom": "~5.2.0",
-    "react-scripts": "4.0.0",
+    "react-scripts": "~4.0.0",
     "redux": "~4.0.5"
   },
   "devDependencies": {
     "redux-devtools": "^3.7.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build"
   },
   "eslintConfig": {
     "extends": [
