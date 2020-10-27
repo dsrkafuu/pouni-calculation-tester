@@ -1,15 +1,21 @@
 import React from 'react';
 // antd
-import { Button } from 'antd';
-import { DeleteOutlined, RestOutlined, GithubOutlined } from '@ant-design/icons';
+import { Button, Space } from 'antd';
+import { RestOutlined, GithubOutlined } from '@ant-design/icons';
 
 function QuestionCtrl() {
   return (
     <div className="question-ctrl">
       <h3>全局功能</h3>
-      <Button icon={<RestOutlined />}>清除应用缓存</Button>
-      <Button icon={<DeleteOutlined />}>清空所有应用数据</Button>
-      <Button icon={<GithubOutlined />}>查看 GitHub 仓库</Button>
+      <Space>
+        <Button icon={<RestOutlined />}>清除缓存</Button>
+        <Button icon={<GithubOutlined />}>GitHub</Button>
+      </Space>
+      <h3 className="question-ctrl-notice">提示</h3>
+      <h4>小数开启</h4>
+      <span>答案请化为与设置的位数相同的精度</span>
+      <h4>负数和小数关闭</h4>
+      <span>答案也将不会出现负数和小数</span>
     </div>
   );
 }

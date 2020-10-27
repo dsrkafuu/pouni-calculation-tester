@@ -73,14 +73,15 @@
 
 .question-ctrl {
   margin: $margin-md;
-
   button {
-    margin-top: $margin-md;
-    width: 80%;
-
-    &:nth-child(2) {
-      margin-top: $margin-xxs;
-    }
+    margin-top: $margin-xs;
+  }
+  .question-ctrl-notice {
+    margin-top: $margin-sm;
+  }
+  & > span {
+    display: block;
+    margin-bottom: $margin-xxs;
   }
 }
 
