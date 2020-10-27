@@ -1,7 +1,8 @@
 {
   "name": "pouni-calculation-tester",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
+  "homepage": "/pouni-calculation-tester/",
   "dependencies": {
     "@ant-design/icons": "~4.2.2",
     "@craco/craco": "~5.7.0",
@@ -19,11 +20,12 @@
     "redux": "~4.0.5"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "redux-devtools": "^3.7.0"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build"
+    "start": "cross-env NODE_ENV=development craco start",
+    "build": "cross-env NODE_ENV=production craco build"
   },
   "eslintConfig": {
     "extends": [
@@ -32,10 +34,15 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all",
-      "not ie all"
+      ">= 1%",
+      "last 1 major version",
+      "Chrome >= 60",
+      "Firefox >= 60",
+      "Edge >= 16",
+      "iOS >= 10",
+      "Safari >= 10",
+      "Android >= 6",
+      "not Explorer <= 11"
     ],
     "development": [
       "last 1 chrome version",
