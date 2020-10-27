@@ -8,6 +8,9 @@ body {
   background-color: #f0f2f5 !important;
   min-height: 100vh;
 }
+body {
+  overflow-y: scroll;
+}
 
 #root {
   max-width: 900px;

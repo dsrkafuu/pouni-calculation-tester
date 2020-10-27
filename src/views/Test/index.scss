@@ -1,5 +1,21 @@
 @import '../../variables.scss';
 
 .test {
-  margin: $margin-md;
+  .ant-table-cell {
+    .ant-radio-wrapper {
+      margin-right: $margin-sm;
+    }
+    .ant-input {
+      width: 50%;
+    }
+  }
+  .ant-table-thead tr,
+  .ant-table-row {
+    .ant-table-cell:first-child {
+      padding-right: $margin-md;
+    }
+    .ant-table-cell:last-child {
+      padding-left: $margin-md;
+    }
+  }
 }

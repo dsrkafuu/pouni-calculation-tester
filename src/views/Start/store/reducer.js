@@ -21,9 +21,9 @@ const HARD_SETTINGS = fromJS({
 
 const defaultState = fromJS({
   questionTypes: {
-    fillBlank: 5, // fill in blanks
-    judge: 5, // judgements
-    select: 5, // selections
+    fillBlank: 2, // fill in blanks
+    judge: 4, // judgements
+    select: 3, // selections
   },
   questionSettings: EASY_SETTINGS,
 });
