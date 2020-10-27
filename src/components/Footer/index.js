@@ -13,7 +13,7 @@ function Footer(props) {
         </div>
         <div>
           <AntDesignOutlined />
-          <span>&nbsp;B18030620 | 2020.10.26</span>
+          <span>&nbsp;NJUPTB18030620 | 2020.10.26</span>
         </div>
       </div>
     </div>

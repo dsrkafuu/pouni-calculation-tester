@@ -9,7 +9,13 @@ function QuestionCtrl() {
       <h3>全局功能</h3>
       <Space>
         <Button icon={<RestOutlined />}>清除缓存</Button>
-        <Button icon={<GithubOutlined />}>GitHub</Button>
+        <Button
+          icon={<GithubOutlined />}
+          href="https://github.com/amzrk2/pouni-calculation-tester"
+          target="_blank"
+        >
+          GitHub
+        </Button>
       </Space>
       <h3 className="question-ctrl-notice">提示</h3>
       <h4>小数开启</h4>
