@@ -190,7 +190,11 @@ class ExpGen {
             ans = evaluate(exp);
           }
           // if dot, floor to same dot range
-          this.dot && (ans = Number.parseFloat(ans.toFixed(this.dotRange)));
+          if (this.dot) {
+            ans = ans.toFixed(this.dotRange);
+          } else {
+            ans = ans.toString();
+          }
           // add exp
           exps.push({ exp, ans });
         }

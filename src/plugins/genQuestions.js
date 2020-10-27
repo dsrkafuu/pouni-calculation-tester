@@ -28,8 +28,9 @@ function _genFillBlank(rawExps) {
 /**
  * generate judge questions
  * @param {array} rawExps
+ * @param {number} dotRange
  */
-function _genJudge(rawExps) {
+function _genJudge(rawExps, dotRange) {
   const questions = rawExps.map((val, index) => {
     const newVal = { index, userAns: null, status: null };
     const rand = _getRandomNumber(0, 1);
@@ -37,7 +38,7 @@ function _genJudge(rawExps) {
       newVal.exp = `${val.exp} = ${val.ans}`;
       newVal.ans = true;
     } else {
-      newVal.exp = `${val.exp} = ${val.ans + _getRandomNumber(1, 50)}`;
+      newVal.exp = `${val.exp} = ${(Number(val.ans) + _getRandomNumber(1, 50)).toFixed(dotRange)}`;
       newVal.ans = false;
     }
     return newVal;
@@ -48,15 +49,16 @@ function _genJudge(rawExps) {
 /**
  * generate select questions
  * @param {array} rawExps
+ * @param {number} dotRange
  */
-function _genSelect(rawExps) {
+function _genSelect(rawExps, dotRange) {
   const questions = rawExps.map((val, index) => {
     const newVal = { index, exp: val.exp, userAns: null, status: null };
     const rand = _getRandomNumber(0, 2);
     const selections = [
-      val.ans + _getRandomNumber(1, 50),
-      val.ans + _getRandomNumber(1, 50),
-      val.ans + _getRandomNumber(1, 50),
+      (Number(val.ans) + _getRandomNumber(1, 50)).toFixed(dotRange),
+      (Number(val.ans) + _getRandomNumber(1, 50)).toFixed(dotRange),
+      (Number(val.ans) + _getRandomNumber(1, 50)).toFixed(dotRange),
     ];
     selections[rand] = val.ans;
     newVal.selections = selections;
@@ -68,8 +70,13 @@ function _genSelect(rawExps) {
 
 /**
  * generate questions
+ * @param {array} rawExps
+ * @param {number} fillBlank
+ * @param {number} judge
+ * @param {number} select
+ * @param {object} settings
  */
-function genQuestions(rawExps, fillBlank, judge, select) {
+function genQuestions(rawExps, fillBlank, judge, select, settings) {
   let fillBlankExps = [];
   for (let i = 0; i < fillBlank; i++) {
     fillBlankExps.push(rawExps.shift());
@@ -79,12 +86,12 @@ function genQuestions(rawExps, fillBlank, judge, select) {
   for (let i = fillBlank; i < fillBlank + judge; i++) {
     judgeExps.push(rawExps.shift());
   }
-  judgeExps = _genJudge(judgeExps);
+  judgeExps = _genJudge(judgeExps, settings.dot ? settings.dotRange : 0);
   let selectExps = [];
   for (let i = fillBlank + judge; i < fillBlank + judge + select; i++) {
     selectExps.push(rawExps.shift());
   }
-  selectExps = _genSelect(selectExps);
+  selectExps = _genSelect(selectExps, settings.dot ? settings.dotRange : 0);
   return {
     fillBlankQuestions: fillBlankExps,
     judgeQuestions: judgeExps,

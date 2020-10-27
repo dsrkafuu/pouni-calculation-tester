@@ -42,12 +42,11 @@ function Test() {
   // and if currentQuestions been reset to {}
   // it will run again to gen new questions
   useEffect(() => {
-    console.log(questionsAreEmpty);
     // if question arrays are empty
     if (questionsAreEmpty) {
       (async () => {
         const rawExps = await expGen.getExpressions(fillBlank + judge + select, questionSettings);
-        const questions = genQuestions(rawExps, fillBlank, judge, select);
+        const questions = genQuestions(rawExps, fillBlank, judge, select, questionSettings);
         dispatch(actionAllQuestions(questions));
       })();
     }
@@ -64,7 +63,12 @@ function Test() {
       >
         测试
       </button>
-      <Table dataSource={fillBlankQuestions} rowKey={(record) => record.index}>
+      <Table
+        dataSource={fillBlankQuestions}
+        rowKey={(record) => record.index}
+        pagination={false}
+        size="middle"
+      >
         <Table.Column title="题目" dataIndex="exp" key="exp" />
         <Table.Column
           title="填空"
@@ -80,7 +84,12 @@ function Test() {
           )}
         />
       </Table>
-      <Table dataSource={judgeQuestions} rowKey={(record) => record.index}>
+      <Table
+        dataSource={judgeQuestions}
+        rowKey={(record) => record.index}
+        pagination={false}
+        size="middle"
+      >
         <Table.Column title="题目" dataIndex="exp" key="exp" />
         <Table.Column
           title="判断"
@@ -101,7 +110,12 @@ function Test() {
           )}
         />
       </Table>
-      <Table dataSource={selectQuestions} rowKey={(record) => record.index}>
+      <Table
+        dataSource={selectQuestions}
+        rowKey={(record) => record.index}
+        pagination={false}
+        size="middle"
+      >
         <Table.Column title="题目" dataIndex="exp" key="exp" />
         <Table.Column
           title="选择"
