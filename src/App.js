@@ -11,6 +11,7 @@ import {
 // views
 import Footer from './components/Footer';
 import Start from './views/Start';
+import Test from './views/Test';
 
 /**
  * app main page
@@ -57,7 +58,7 @@ const App = withRouter(({ history }) => {
       <div className="app-content">
         <Switch>
           <Route path={`${match.path}/start`} component={Start} />
-          <Route path={`${match.path}/test`}>测试</Route>
+          <Route path={`${match.path}/test`} component={Test}></Route>
           <Route path={`${match.path}/history`}>历史记录</Route>
           <Route path={`${match.path}/about`}>关于</Route>
           <Redirect to="/" />

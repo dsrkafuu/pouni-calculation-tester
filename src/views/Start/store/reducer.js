@@ -2,6 +2,7 @@ import { UPDATE_QUESTION_TYPES, UPDATE_QUESTION_SETTINGS } from './actypes';
 
 // intergated settings
 const EASY_SETTINGS = {
+  hhc: 'easy',
   range: 10,
   minus: false,
   bracket: false,
@@ -9,6 +10,7 @@ const EASY_SETTINGS = {
   dotRange: 1,
 };
 const HARD_SETTINGS = {
+  hhc: 'hard',
   range: 100,
   minus: true,
   bracket: true,
@@ -22,10 +24,7 @@ const defaultState = {
     judge: 5, // judgements
     select: 5, // selections
   },
-  questionSettings: {
-    hhc: 'easy',
-    ...EASY_SETTINGS,
-  },
+  questionSettings: EASY_SETTINGS,
 };
 
 const reducer = (prevState = defaultState, action) => {
@@ -40,11 +39,11 @@ const reducer = (prevState = defaultState, action) => {
     case UPDATE_QUESTION_SETTINGS:
       if (action.value.hhc === 'easy') {
         return Object.assign({}, prevState, {
-          questionSettings: { hhc: 'easy', ...EASY_SETTINGS },
+          questionSettings: EASY_SETTINGS,
         });
       } else if (action.value.hhc === 'hard') {
         return Object.assign({}, prevState, {
-          questionSettings: { hhc: 'hard', ...HARD_SETTINGS },
+          questionSettings: HARD_SETTINGS,
         });
       }
       return Object.assign({}, prevState, {
