@@ -3,47 +3,44 @@ import { useSelector, useDispatch } from 'react-redux';
 // antd
 import { Radio, Switch, Select } from 'antd';
 // store
-import { actionUpdateQuestionSettings } from '../../store/actions';
+import { actionQuestionSettings } from '../../store/actions';
 
 function QuestionSettings() {
   const dispatch = useDispatch();
   // get settings data
-  const settings = useSelector((state) => state.start.questionSettings);
+  const settings = useSelector((state) => state.getIn(['start', 'questionSettings']).toJS());
   // get custom data
   const isCustom = settings.hhc === 'custom';
-
   /**
    * update hhc
    * @param {event} e
    */
-  const updateHdc = (e) =>
-    dispatch(actionUpdateQuestionSettings({ ...settings, hhc: e.target.value.split('-')[1] }));
+  const updateHhc = (e) => dispatch(actionQuestionSettings({ hhc: e.target.value.split('-')[1] }));
   /**
    * update range, parse string to number
    * @param {event} e
    */
   const updateRange = (e) =>
-    dispatch(actionUpdateQuestionSettings({ ...settings, range: +e.target.value.split('-')[1] }));
+    dispatch(actionQuestionSettings({ range: +e.target.value.split('-')[1] }));
   /**
    * update switches
    * @param {boolean} checked
    * @param {string} key
    */
-  const updateSwitch = (checked, key) =>
-    dispatch(actionUpdateQuestionSettings({ ...settings, [key]: checked }));
+  const updateSwitch = (checked, key) => dispatch(actionQuestionSettings({ [key]: checked }));
   /**
    * update dot range
    * @param {string} value
    */
   const updateDotRange = (value) =>
-    dispatch(actionUpdateQuestionSettings({ ...settings, dotRange: +value.split('-')[1] }));
+    dispatch(actionQuestionSettings({ dotRange: +value.split('-')[1] }));
 
   return (
     <div className="question-settings">
       <h3>难度与细节设置</h3>
       <div className="question-settings-item">
         <span>难度</span>
-        <Radio.Group value={`hdc-${settings.hhc}`} onChange={updateHdc} buttonStyle="solid">
+        <Radio.Group value={`hdc-${settings.hhc}`} onChange={updateHhc} buttonStyle="solid">
           <Radio.Button value="hdc-easy">简单</Radio.Button>
           <Radio.Button value="hdc-hard">困难</Radio.Button>
           <Radio.Button value="hdc-custom">自定义</Radio.Button>

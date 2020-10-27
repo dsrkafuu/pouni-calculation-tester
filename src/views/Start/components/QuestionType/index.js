@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // store
-import { actionUpdateQuestionTypes } from '../../store/actions';
+import { actionQuestionTypes } from '../../store/actions';
 // antd
 import { Slider, InputNumber } from 'antd';
 
@@ -15,7 +15,7 @@ function QuestionType(props) {
   // get data from props
   const { typeText, typeKey } = props;
   // get question type numbers
-  const number = useSelector((state) => state.start.questionTypes[typeKey]);
+  const number = useSelector((state) => state.getIn(['start', 'questionTypes', typeKey]));
   /**
    * update question types
    * @param {number} value
@@ -25,7 +25,7 @@ function QuestionType(props) {
       return;
     }
     // dispatch update
-    return dispatch(actionUpdateQuestionTypes({ [typeKey]: value }));
+    return dispatch(actionQuestionTypes({ [typeKey]: value }));
   };
 
   return (

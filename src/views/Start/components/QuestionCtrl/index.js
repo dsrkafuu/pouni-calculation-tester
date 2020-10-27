@@ -6,7 +6,7 @@ import { RestOutlined, GithubOutlined } from '@ant-design/icons';
 function QuestionCtrl() {
   return (
     <div className="question-ctrl">
-      <h3>全局功能</h3>
+      <h3 className="question-ctrl-func">全局功能</h3>
       <Space>
         <Button icon={<RestOutlined />}>清除缓存</Button>
         <Button
