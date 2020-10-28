@@ -1,4 +1,5 @@
 import { fromJS } from 'immutable';
+import { max } from 'mathjs';
 
 import {
   SAVE_ALL_QUESTIONS,
@@ -44,10 +45,17 @@ const reducer = (prevState = defaultState, action) => {
     }
     case SAVE_ALL_QUESTIONS: {
       const oldList = prevState.get('history');
-      // gen new history
-      const historyLength = oldList.toJS().length;
+      // gen new history, generate a id
+      let maxID = 0;
+      if (oldList.toJS().length > 0) {
+        oldList.forEach((val) => {
+          val.get('historyID') > maxID && (maxID = val.get('historyID'));
+        });
+      } else {
+        maxID = -1;
+      }
       const newHistory = {
-        historyID: historyLength + 1,
+        historyID: maxID + 1,
         historyQuestions: {
           fillBlankQuestions: prevState.get('fillBlankQuestions').toJS(),
           judgeQuestions: prevState.get('judgeQuestions').toJS(),

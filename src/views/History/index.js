@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { fromJS } from 'immutable';
 // antd
 import { Table } from 'antd';
 import {
@@ -31,16 +30,17 @@ function History() {
   // get current history id
   const { historyID } = useParams();
   // get data of this id
-  const history = useSelector((state) => {
-    return state
-      .getIn(['test', 'history'])
-      .get(historyID - 1, fromJS({}))
-      .toJS();
+  const allHistory = useSelector((state) => state.getIn(['test', 'history']).toJS());
+  let history;
+  allHistory.forEach((val) => {
+    console.log(val.historyID, historyID);
+    if (val.historyID === +historyID) {
+      history = val;
+    }
   });
-  const historyAvailable = history.hasOwnProperty('historyID');
   // get questions
   let fillBlankQuestions, judgeQuestions, selectQuestions;
-  if (historyAvailable) {
+  if (history) {
     fillBlankQuestions = history.historyQuestions.fillBlankQuestions;
     judgeQuestions = history.historyQuestions.judgeQuestions;
     selectQuestions = history.historyQuestions.selectQuestions;
