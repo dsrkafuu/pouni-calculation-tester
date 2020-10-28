@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // antd
-import { Table, Input, Radio } from 'antd';
-import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import { Table, Input, Radio, Button } from 'antd';
+import { CheckOutlined, CloseOutlined, RedoOutlined, LoginOutlined } from '@ant-design/icons';
 // css
 import './index.scss';
 // exp gens
@@ -55,103 +55,115 @@ function Test() {
 
   return (
     <div className="test">
-      {/* <button
-        onClick={() =>
-          dispatch(
-            actionAllQuestions({ fillBlankQuestions: [], judgeQuestions: [], selectQuestions: [] })
-          )
-        }
-      >
-        测试
-      </button> */}
-      <div className="test-section">
-        <Table
-          dataSource={fillBlankQuestions}
-          rowKey={(record) => record.index}
-          pagination={false}
-          size="middle"
-          tableLayout="fixed"
-        >
-          <Table.Column title="题目" dataIndex="exp" key="exp" align="right" />
-          <Table.Column
-            title="填空"
-            key="userAns"
-            render={(record) => (
-              <Input
-                value={record.userAns}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  dispatch(actionFillBlankQuestions({ index: record.index, answer: value }));
-                }}
-              />
-            )}
-          />
-        </Table>
+      <div className="test-wrapper">
+        <div className="test-section">
+          <Table
+            dataSource={fillBlankQuestions}
+            rowKey={(record) => record.index}
+            pagination={false}
+            size="middle"
+            tableLayout="fixed"
+          >
+            <Table.Column title="题目" dataIndex="exp" key="exp" align="right" width="60%" />
+            <Table.Column
+              title="填空"
+              key="userAns"
+              render={(record) => (
+                <Input
+                  value={record.userAns}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    dispatch(actionFillBlankQuestions({ index: record.index, answer: value }));
+                  }}
+                />
+              )}
+            />
+          </Table>
+        </div>
+        <div className="test-section">
+          <Table
+            dataSource={judgeQuestions}
+            rowKey={(record) => record.index}
+            pagination={false}
+            size="middle"
+            tableLayout="fixed"
+          >
+            <Table.Column title="题目" dataIndex="exp" key="exp" align="right" width="60%" />
+            <Table.Column
+              title="判断"
+              key="userAns"
+              render={(record) => (
+                <Radio.Group
+                  className="radio-group-judge"
+                  optionType="button"
+                  options={[
+                    {
+                      label: <CheckOutlined />,
+                      value: true,
+                    },
+                    {
+                      label: <CloseOutlined />,
+                      value: false,
+                    },
+                  ]}
+                  value={record.userAns}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    dispatch(actionJudgeQuestions({ index: record.index, answer: value }));
+                  }}
+                />
+              )}
+            />
+          </Table>
+        </div>
+        <div className="test-section">
+          <Table
+            dataSource={selectQuestions}
+            rowKey={(record) => record.index}
+            pagination={false}
+            size="middle"
+            tableLayout="fixed"
+          >
+            <Table.Column title="题目" dataIndex="exp" key="exp" align="right" width="60%" />
+            <Table.Column
+              title="选择"
+              key="userAns"
+              render={(record) => (
+                <Radio.Group
+                  options={[
+                    { label: record.selections[0], value: 0 },
+                    { label: record.selections[1], value: 1 },
+                    { label: record.selections[2], value: 2 },
+                  ]}
+                  value={record.userAns}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    dispatch(actionSelectQuestions({ index: record.index, answer: value }));
+                  }}
+                />
+              )}
+            />
+          </Table>
+        </div>
       </div>
-      <div className="test-section">
-        <Table
-          dataSource={judgeQuestions}
-          rowKey={(record) => record.index}
-          pagination={false}
-          size="middle"
-          tableLayout="fixed"
-        >
-          <Table.Column title="题目" dataIndex="exp" key="exp" align="right" />
-          <Table.Column
-            title="判断"
-            key="userAns"
-            render={(record) => (
-              <Radio.Group
-                className="radio-group-judge"
-                optionType="button"
-                options={[
-                  {
-                    label: <CheckOutlined />,
-                    value: true,
-                  },
-                  {
-                    label: <CloseOutlined />,
-                    value: false,
-                  },
-                ]}
-                value={record.userAns}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  dispatch(actionJudgeQuestions({ index: record.index, answer: value }));
-                }}
-              />
-            )}
+      <div className="test-ctrl">
+        <div className="crtl-wrapper">
+          <Button
+            size="large"
+            icon={<RedoOutlined />}
+            danger={true}
+            onClick={() =>
+              dispatch(
+                actionAllQuestions({
+                  fillBlankQuestions: [],
+                  judgeQuestions: [],
+                  selectQuestions: [],
+                })
+              )
+            }
           />
-        </Table>
-      </div>
-      <div className="test-section">
-        <Table
-          dataSource={selectQuestions}
-          rowKey={(record) => record.index}
-          pagination={false}
-          size="middle"
-          tableLayout="fixed"
-        >
-          <Table.Column title="题目" dataIndex="exp" key="exp" align="right" />
-          <Table.Column
-            title="选择"
-            key="userAns"
-            render={(record) => (
-              <Radio.Group
-                options={[
-                  { label: record.selections[0], value: 0 },
-                  { label: record.selections[1], value: 1 },
-                  { label: record.selections[2], value: 2 },
-                ]}
-                value={record.userAns}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  dispatch(actionSelectQuestions({ index: record.index, answer: value }));
-                }}
-              />
-            )}
-          />
-        </Table>
+          <Button type="primary" size="large" icon={<LoginOutlined />} />
+        </div>
       </div>
     </div>
   );

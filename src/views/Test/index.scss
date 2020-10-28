@@ -1,6 +1,25 @@
 @import '../../variables.scss';
 
 .test {
+  display: flex;
+  flex-wrap: nowrap;
+  .test-wrapper {
+    flex: 1 1 auto;
+  }
+  .test-ctrl {
+    flex: 0 0 auto;
+    .crtl-wrapper {
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+    }
+    .ant-btn {
+      margin: $margin-md;
+      margin-bottom: 0;
+    }
+  }
+
   .ant-table-cell {
     .ant-radio-wrapper {
       margin-right: $margin-sm;
