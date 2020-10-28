@@ -5,6 +5,7 @@
   flex-wrap: nowrap;
   .test-wrapper {
     flex: 1 1 auto;
+    position: relative;
   }
   .test-ctrl {
     flex: 0 0 auto;
@@ -19,7 +20,17 @@
       margin-bottom: 0;
     }
   }
-
+  .test-loading {
+    position: absolute;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+    text-align: center;
+    padding-top: $margin-xl;
+  }
   .ant-table-cell {
     .ant-radio-wrapper {
       margin-right: $margin-sm;
