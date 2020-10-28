@@ -8,6 +8,14 @@
     .ant-input {
       width: 50%;
     }
+    .radio-group-judge {
+      width: 30%;
+      display: flex;
+      & > label {
+        flex: 1 1 auto;
+        text-align: center;
+      }
+    }
   }
   .ant-table-thead tr,
   .ant-table-row {

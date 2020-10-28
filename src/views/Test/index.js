@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // antd
 import { Table, Input, Radio } from 'antd';
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 // css
 import './index.scss';
 // exp gens
@@ -101,10 +102,17 @@ function Test() {
             key="userAns"
             render={(record) => (
               <Radio.Group
+                className="radio-group-judge"
                 optionType="button"
                 options={[
-                  { label: '正确', value: true },
-                  { label: '错误', value: false },
+                  {
+                    label: <CheckOutlined />,
+                    value: true,
+                  },
+                  {
+                    label: <CloseOutlined />,
+                    value: false,
+                  },
                 ]}
                 value={record.userAns}
                 onChange={(e) => {
