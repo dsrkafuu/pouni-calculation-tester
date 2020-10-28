@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Button } from 'antd';
 import { RedoOutlined, LoginOutlined } from '@ant-design/icons';
 // store
-import { actionAllQuestions } from '../../store/actions';
+import { actionAllQuestions, actionSaveAllQuestion } from '../../store/actions';
 
 /**
  * test control section
@@ -33,7 +33,12 @@ function TestCtrl(props) {
             );
           }}
         />
-        <Button type="primary" size="large" icon={<LoginOutlined />} />
+        <Button
+          type="primary"
+          size="large"
+          icon={<LoginOutlined />}
+          onClick={() => dispatch(actionSaveAllQuestion())}
+        />
       </div>
     </div>
   );

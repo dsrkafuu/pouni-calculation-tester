@@ -33,3 +33,11 @@ export const actionSelectQuestions = (value) => {
     value,
   };
 };
+
+// save and check questions
+export const SAVE_ALL_QUESTIONS = 'SAVE_ALL_QUESTIONS';
+export const actionSaveAllQuestion = () => {
+  return {
+    type: SAVE_ALL_QUESTIONS,
+  };
+};
