@@ -1,10 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 // antd
 import { Table, Button, Space } from 'antd';
 import { useRouteMatch, Link } from 'react-router-dom';
+// store
+import { actionRemoveHistory } from '../../store/test/actions';
 
 function HistoryIndex() {
+  const dispatch = useDispatch();
   // get router match
   const match = useRouteMatch();
   // get all history
@@ -26,12 +29,14 @@ function HistoryIndex() {
           title="控制"
           key="control"
           align="center"
-          render={(record) => (
+          render={(value, record, index) => (
             <Space>
               <Link to={`${match.path}/${record.historyID}`} component={Button} type="primary">
                 详情
               </Link>
-              <Button danger={true}>删除</Button>
+              <Button danger={true} onClick={() => dispatch(actionRemoveHistory(index))}>
+                删除
+              </Button>
             </Space>
           )}
         />

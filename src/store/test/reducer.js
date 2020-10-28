@@ -6,6 +6,7 @@ import {
   UPDATE_FILL_BLANK_QUESTIONS,
   UPDATE_JUDGE_QUESTIONS,
   UPDATE_SELECT_QUESTIONS,
+  REMOVE_HISTORY,
 } from './actions';
 
 const defaultState = fromJS({
@@ -61,6 +62,12 @@ const reducer = (prevState = defaultState, action) => {
       });
       // add a history
       const newList = oldList.push(fromJS(newHistory));
+      return prevState.set('history', newList);
+    }
+    // remove a history p: index
+    case REMOVE_HISTORY: {
+      const oldList = prevState.get('history');
+      const newList = oldList.splice(action.value, 1);
       return prevState.set('history', newList);
     }
     // init

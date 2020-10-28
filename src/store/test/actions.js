@@ -41,3 +41,12 @@ export const actionSaveAllQuestion = () => {
     type: SAVE_ALL_QUESTIONS,
   };
 };
+
+// remove a history
+export const REMOVE_HISTORY = 'REMOVE_HISTORY';
+export const actionRemoveHistory = (value) => {
+  return {
+    type: REMOVE_HISTORY,
+    value,
+  };
+};
