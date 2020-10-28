@@ -13,3 +13,22 @@ $margin-xs: 0.75rem;
 $margin-sm: 1rem;
 $margin-md: 1.5rem;
 $margin-lg: 2rem;
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: local('SF Pro Text Regular'),
+    url('https://cdn.jsdelivr.net/gh/amzrk2/web-font-archive@2/sf-pro-web/sf-pro-text-regular.woff2')
+      format('woff2');
+}
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: local('SF Pro Text Semibold'),
+    url('https://cdn.jsdelivr.net/gh/amzrk2/web-font-archive@2/sf-pro-web/sf-pro-text-semibold.woff2')
+      format('woff2');
+}

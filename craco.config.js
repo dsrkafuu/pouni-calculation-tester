@@ -9,8 +9,9 @@ module.exports = {
         customizeTheme: {
           '@primary-color': '#ff7a45',
           '@border-radius-base': '3px',
+          '@pagination-font-weight-active': 600,
           '@font-family':
-            "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Arial', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans CN', 'Source Han Sans SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif",
+            "-apple-system, BlinkMacSystemFont, 'PingFang SC', 'SF Pro Text', sans-serif",
         },
       },
     },

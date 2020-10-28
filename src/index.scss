@@ -12,6 +12,17 @@ body {
   overflow-y: scroll;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+.app-nav {
+  font-weight: 600 !important;
+}
+
 #root {
   max-width: 900px;
   margin: 0 auto;
