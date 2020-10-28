@@ -1,18 +1,120 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { fromJS } from 'immutable';
+// antd
+import { Table } from 'antd';
+import {
+  CheckCircleTwoTone,
+  CloseCircleTwoTone,
+  CheckOutlined,
+  CloseOutlined,
+} from '@ant-design/icons';
 
 /**
- * custom hook that parse the query string
+ * status render
+ * @param {boolean} status
  */
-const useQuery = () => {
-  return new URLSearchParams(useLocation().search);
-};
+const renderStatus = (status) =>
+  status ? (
+    <CheckCircleTwoTone twoToneColor="#52c41a" />
+  ) : (
+    <CloseCircleTwoTone twoToneColor="#ff7875" />
+  );
+/**
+ * answer render
+ * @param {boolean} ans
+ */
+const renderAnswer = (ans) => (ans ? <CheckOutlined /> : <CloseOutlined />);
 
 function History() {
-  const query = useQuery();
-  const historyID = query.get('id');
+  // get current history id
+  const { historyID } = useParams();
+  // get data of this id
+  const history = useSelector((state) => {
+    return state
+      .getIn(['test', 'history'])
+      .get(historyID - 1, fromJS({}))
+      .toJS();
+  });
+  const historyAvailable = history.hasOwnProperty('historyID');
+  // get questions
+  let fillBlankQuestions, judgeQuestions, selectQuestions;
+  if (historyAvailable) {
+    fillBlankQuestions = history.historyQuestions.fillBlankQuestions;
+    judgeQuestions = history.historyQuestions.judgeQuestions;
+    selectQuestions = history.historyQuestions.selectQuestions;
+  }
 
-  return <div className="history">{historyID}</div>;
+  return (
+    <div className="history">
+      <Table
+        dataSource={fillBlankQuestions}
+        rowKey={(record) => record.index}
+        pagination={false}
+        size="small"
+        tableLayout="fixed"
+      >
+        <Table.Column title="填空题目" dataIndex="exp" key="exp" align="center" width="50%" />
+        <Table.Column title="正确答案" dataIndex="ans" key="ans" align="center" />
+        <Table.Column title="你的答案" dataIndex="userAns" key="userAns" align="center" />
+        <Table.Column
+          title="状态"
+          key="status"
+          align="center"
+          render={(record) => renderStatus(record.status)}
+          width="10%"
+        />
+      </Table>
+      <Table
+        dataSource={judgeQuestions}
+        rowKey={(record) => record.index}
+        pagination={false}
+        size="small"
+        tableLayout="fixed"
+      >
+        <Table.Column title="判断题目" dataIndex="exp" key="exp" align="center" width="50%" />
+        <Table.Column
+          title="正确答案"
+          dataIndex="ans"
+          key="ans"
+          align="center"
+          render={(record) => renderAnswer(record.ans)}
+        />
+        <Table.Column
+          title="你的答案"
+          key="userAns"
+          align="center"
+          render={(record) => renderAnswer(record.userAns)}
+        />
+        <Table.Column
+          title="状态"
+          key="status"
+          align="center"
+          render={(record) => renderStatus(record.status)}
+          width="10%"
+        />
+      </Table>
+      <Table
+        dataSource={selectQuestions}
+        rowKey={(record) => record.index}
+        pagination={false}
+        size="small"
+        tableLayout="fixed"
+      >
+        <Table.Column title="选择题目" dataIndex="exp" key="exp" align="center" width="50%" />
+        <Table.Column title="正确答案" dataIndex="ans" key="ans" align="center" />
+        <Table.Column title="你的答案" dataIndex="userAns" key="userAns" align="center" />
+        <Table.Column
+          title="状态"
+          key="status"
+          align="center"
+          render={(record) => renderStatus(record.status)}
+          width="10%"
+        />
+      </Table>
+    </div>
+  );
 }
 
 export default History;

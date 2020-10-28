@@ -60,7 +60,8 @@ const App = withRouter(({ history }) => {
         <Switch>
           <Route path={`${match.path}/start`} component={Start} />
           <Route path={`${match.path}/test`} component={Test} />
-          <Route path={`${match.path}/history`} component={History} />
+          <Route path={`${match.path}/history/:historyID`} component={History} />
+          <Route path={`${match.path}/history`}>历史记录</Route>
           <Route path={`${match.path}/about`}>关于</Route>
           <Redirect to="/" />
         </Switch>
