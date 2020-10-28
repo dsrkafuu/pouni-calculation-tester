@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // store
-import { actionQuestionTypes } from '../../store/actions';
+import { actionQuestionTypes } from '../../../../store/start/actions';
 // antd
 import { Slider, InputNumber } from 'antd';
 

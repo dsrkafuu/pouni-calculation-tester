@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // antd
 import { Radio, Switch, Select } from 'antd';
 // store
-import { actionQuestionSettings } from '../../store/actions';
+import { actionQuestionSettings } from '../../../../store/start/actions';
 
 function QuestionSettings() {
   const dispatch = useDispatch();

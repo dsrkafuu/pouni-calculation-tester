@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux-immutable';
 // reducers
-import { reducer as start } from '../views/Start/store';
-import { reducer as test } from '../views/Test/store';
+import { reducer as start } from './start';
+import { reducer as test } from './test';
 
 // combine reducers
 export default combineReducers({

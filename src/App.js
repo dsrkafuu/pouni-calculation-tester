@@ -12,6 +12,7 @@ import {
 import Footer from './components/Footer';
 import Start from './views/Start';
 import Test from './views/Test';
+import HistoryIndex from './views/HistoryIndex';
 import History from './views/History';
 
 /**
@@ -48,8 +49,8 @@ const App = withRouter(({ history }) => {
     <div className="app">
       <Menu className="app-nav" mode="horizontal" selectedKeys={[history.location.pathname]}>
         {menuItems.map((val) => (
-          <Menu.Item key={`${match.url}/${val.key}`}>
-            <Link to={`${match.url}/${val.key}`}>
+          <Menu.Item key={`${match.path}/${val.key}`}>
+            <Link to={`${match.path}/${val.key}`}>
               {val.icon}
               <span>{val.text}</span>
             </Link>
@@ -61,7 +62,7 @@ const App = withRouter(({ history }) => {
           <Route path={`${match.path}/start`} component={Start} />
           <Route path={`${match.path}/test`} component={Test} />
           <Route path={`${match.path}/history/:historyID`} component={History} />
-          <Route path={`${match.path}/history`}>历史记录</Route>
+          <Route path={`${match.path}/history`} component={HistoryIndex} />
           <Route path={`${match.path}/about`}>关于</Route>
           <Redirect to="/" />
         </Switch>

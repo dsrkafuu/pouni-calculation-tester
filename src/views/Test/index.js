@@ -8,7 +8,7 @@ import './index.scss';
 import ExpGen from '../../plugins/ExpGen';
 import genQuestions from '../../plugins/genQuestions';
 // store
-import { actionAllQuestions } from './store/actions';
+import { actionAllQuestions } from '../../store/test/actions';
 // components
 import TestSection from './components/TestSection';
 import TestCtrl from './components/TestCtrl';

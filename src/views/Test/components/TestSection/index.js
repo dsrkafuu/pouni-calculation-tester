@@ -8,7 +8,7 @@ import {
   actionFillBlankQuestions,
   actionJudgeQuestions,
   actionSelectQuestions,
-} from '../../store/actions';
+} from '../../../../store/test/actions';
 
 /**
  * gen a test selection
