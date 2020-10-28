@@ -1,6 +1,4 @@
 import { fromJS } from 'immutable';
-import { max } from 'mathjs';
-
 import {
   SAVE_ALL_QUESTIONS,
   UPDATE_ALL_QUESTIONS,
