@@ -20,8 +20,8 @@ function QuestionCtrl() {
       <h3 className="question-ctrl-notice">提示</h3>
       <h4>小数开启</h4>
       <span>答案请化为与设置的位数相同的精度</span>
-      <h4>负数和小数关闭</h4>
-      <span>答案也将不会出现负数和小数</span>
+      <h4>负数/小数/数值范围</h4>
+      <span>这些设置项对生成的答案同样有效</span>
     </div>
   );
 }

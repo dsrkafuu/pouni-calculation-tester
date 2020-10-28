@@ -173,16 +173,31 @@ class ExpGen {
           switch (true) {
             case !this.minus && !this.dot:
               checker = (ans) =>
-                Number.isFinite(ans) && !Number.isNaN(ans) && ans % 1 === 0 && ans >= 0;
+                Number.isFinite(ans) &&
+                !Number.isNaN(ans) &&
+                ans % 1 === 0 &&
+                ans >= 0 &&
+                Math.abs(Math.round(ans)) < settings.range;
               break;
             case !this.minus && this.dot:
-              checker = (ans) => Number.isFinite(ans) && !Number.isNaN(ans) && ans >= 0;
+              checker = (ans) =>
+                Number.isFinite(ans) &&
+                !Number.isNaN(ans) &&
+                ans >= 0 &&
+                Math.abs(Math.round(ans)) < settings.range;
               break;
             case this.minus && !this.dot:
-              checker = (ans) => Number.isFinite(ans) && !Number.isNaN(ans) && ans % 1 === 0;
+              checker = (ans) =>
+                Number.isFinite(ans) &&
+                !Number.isNaN(ans) &&
+                ans % 1 === 0 &&
+                Math.abs(Math.round(ans)) < settings.range;
               break;
             default:
-              checker = (ans) => Number.isFinite(ans) && !Number.isNaN(ans);
+              checker = (ans) =>
+                Number.isFinite(ans) &&
+                !Number.isNaN(ans) &&
+                Math.abs(Math.round(ans)) < settings.range;
           }
           while (!checker(ans)) {
             exp = this._genExpression();
