@@ -24,13 +24,7 @@ function TestCtrl(props) {
           danger={true}
           onClick={() => {
             setLoading(true);
-            return dispatch(
-              actionAllQuestions({
-                fillBlankQuestions: [],
-                judgeQuestions: [],
-                selectQuestions: [],
-              })
-            );
+            return dispatch(actionAllQuestions(null));
           }}
         />
         <Button

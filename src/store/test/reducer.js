@@ -20,8 +20,20 @@ const defaultState = fromJS({
 const reducer = (prevState = defaultState, action) => {
   switch (action.type) {
     // update all questions
-    case UPDATE_ALL_QUESTIONS:
-      return defaultState.mergeDeep(fromJS(action.value));
+    case UPDATE_ALL_QUESTIONS: {
+      if (action.value) {
+        return prevState
+          .set('fillBlankQuestions', fromJS(action.value.fillBlankQuestions))
+          .set('judgeQuestions', fromJS(action.value.judgeQuestions))
+          .set('selectQuestions', fromJS(action.value.selectQuestions));
+      } else {
+        // reset but not history
+        return prevState
+          .set('fillBlankQuestions', fromJS([]))
+          .set('judgeQuestions', fromJS([]))
+          .set('selectQuestions', fromJS([]));
+      }
+    }
     // update fill blank questions { index, answer }
     case UPDATE_FILL_BLANK_QUESTIONS: {
       const { index, answer } = action.value;
