@@ -1,5 +1,8 @@
 import { fromJS } from 'immutable';
 import { UPDATE_QUESTION_TYPES, UPDATE_QUESTION_SETTINGSS } from './actions';
+// ls
+import LocalStorage from '../../plugins/LocalStorage';
+const ls = new LocalStorage();
 
 // intergated settings
 const EASY_SETTINGS = fromJS({
@@ -31,19 +34,35 @@ const defaultState = fromJS({
 const reducer = (prevState = defaultState, action) => {
   switch (action.type) {
     // update question types
-    case UPDATE_QUESTION_TYPES:
-      return prevState.mergeDeep(fromJS({ questionTypes: action.value }));
+    case UPDATE_QUESTION_TYPES: {
+      const newState = prevState.mergeDeep(fromJS({ questionTypes: action.value }));
+      ls.save('settings', newState.toJS());
+      return newState;
+    }
     // update question settings
-    case UPDATE_QUESTION_SETTINGSS:
+    case UPDATE_QUESTION_SETTINGSS: {
+      let newState;
       if (action.value.hhc === 'easy') {
-        return prevState.mergeDeep(fromJS({ questionSettings: EASY_SETTINGS }));
+        newState = prevState.mergeDeep(fromJS({ questionSettings: EASY_SETTINGS }));
       } else if (action.value.hhc === 'hard') {
-        return prevState.mergeDeep(fromJS({ questionSettings: HARD_SETTINGS }));
+        newState = prevState.mergeDeep(fromJS({ questionSettings: HARD_SETTINGS }));
+      } else {
+        newState = prevState.mergeDeep(fromJS({ questionSettings: action.value }));
       }
-      return prevState.mergeDeep(fromJS({ questionSettings: action.value }));
-    // init
-    default:
-      return prevState;
+      ls.save('settings', newState.toJS());
+      return newState;
+    }
+    // first init
+    default: {
+      const settings = ls.load('settings');
+      if (settings) {
+        // load from storage
+        return fromJS(settings);
+      } else {
+        // init data
+        return prevState;
+      }
+    }
   }
 };
 
