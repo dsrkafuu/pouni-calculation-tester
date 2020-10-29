@@ -78,13 +78,19 @@ const reducer = (prevState = defaultState, action) => {
           selectQuestions: prevState.get('selectQuestions').toJS(),
         },
         date: dayjs().toJSON(),
+        correctRate: '',
       };
       // check answers
+      let allQuestions = 0;
+      let correctQuestions = 0;
       Object.keys(newHistory.historyQuestions).forEach((key) => {
         newHistory.historyQuestions[key].forEach((question) => {
+          allQuestions++;
           question.status = question.ans === question.userAns;
+          question.status && correctQuestions++;
         });
       });
+      newHistory.correctRate = ((correctQuestions / allQuestions) * 100).toFixed(0) + '%';
       // add a history
       const newList = oldList.push(fromJS(newHistory));
       ls.save('history', newList.toJS());

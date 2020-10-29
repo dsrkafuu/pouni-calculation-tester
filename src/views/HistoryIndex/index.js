@@ -52,6 +52,13 @@ function HistoryIndex() {
             render={(value) => dayjs(value.date).format('YYYY-MM-DD HH:mm')}
           />
           <Table.Column
+            title="正确率"
+            dataIndex="correctRate"
+            key="correctRate"
+            align="center"
+            width="20%"
+          />
+          <Table.Column
             title="控制"
             key="control"
             align="center"
