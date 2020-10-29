@@ -39,7 +39,7 @@ function History() {
   const allHistory = useSelector((state) => state.getIn(['test', 'history']).toJS());
   let history;
   allHistory.forEach((val) => {
-    console.log(val.historyID, historyID);
+    // fix: different type (string, number)
     if (val.historyID === +historyID) {
       history = val;
     }

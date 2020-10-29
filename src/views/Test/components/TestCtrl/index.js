@@ -20,8 +20,8 @@ function TestCtrl(props) {
   const qHistory = useSelector((state) => state.getIn(['test', 'history']).toJS());
   // gen id jump to
   let ID;
-  if (history[qHistory.length - 1]) {
-    ID = history[qHistory.length - 1].historyID + 1;
+  if (qHistory[qHistory.length - 1]) {
+    ID = qHistory[qHistory.length - 1].historyID + 1;
   } else {
     ID = 0;
   }
