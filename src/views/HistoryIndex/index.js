@@ -15,6 +15,9 @@ import {
 } from '@ant-design/icons';
 // css
 import './index.scss';
+// file loader and saver
+import CustomFile from '../../plugins/CustomFile';
+const cf = new CustomFile();
 
 function HistoryIndex() {
   const dispatch = useDispatch();
@@ -77,7 +80,12 @@ function HistoryIndex() {
       <div className="history-ctrl">
         <div className="crtl-wrapper">
           <Button size="large" icon={<CloudUploadOutlined />} />
-          <Button type="primary" size="large" icon={<CloudDownloadOutlined />} />
+          <Button
+            type="primary"
+            size="large"
+            icon={<CloudDownloadOutlined />}
+            onClick={() => cf.save(history)}
+          />
         </div>
       </div>
     </div>
