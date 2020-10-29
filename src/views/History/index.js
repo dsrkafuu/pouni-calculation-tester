@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 // store
 import { useSelector } from 'react-redux';
 // css
@@ -20,8 +20,13 @@ function History() {
       history = val;
     }
   });
-  // get questions
-  let fillBlankQuestions, judgeQuestions, selectQuestions;
+  // if this index do not exist
+  const h = useHistory();
+  !history && h.push('/app/history');
+  // else get questions
+  let fillBlankQuestions = [];
+  let judgeQuestions = [];
+  let selectQuestions = [];
   if (history) {
     fillBlankQuestions = history.historyQuestions.fillBlankQuestions;
     judgeQuestions = history.historyQuestions.judgeQuestions;
