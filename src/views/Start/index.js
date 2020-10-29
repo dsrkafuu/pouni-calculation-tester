@@ -3,7 +3,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 // css
 import './index.scss';
-// components
+// comps
 import QuestionType from './components/QuestionType';
 import QuestionSettings from './components/QuestionSettings';
 import QuestionCtrl from './components/QuestionCtrl';

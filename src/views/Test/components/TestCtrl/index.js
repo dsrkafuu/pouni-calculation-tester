@@ -1,10 +1,10 @@
 import React from 'react';
+// store
 import { useDispatch } from 'react-redux';
+import { actionAllQuestions, actionSaveAllQuestion } from '../../../../store/test/actions';
 // antd
 import { Button } from 'antd';
 import { RedoOutlined, LoginOutlined } from '@ant-design/icons';
-// store
-import { actionAllQuestions, actionSaveAllQuestion } from '../../../../store/test/actions';
 
 /**
  * test control section

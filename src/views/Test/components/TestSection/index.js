@@ -1,14 +1,14 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-// antd
-import { Table, Input, Radio } from 'antd';
-import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 // store
+import { useDispatch } from 'react-redux';
 import {
   actionFillBlankQuestions,
   actionJudgeQuestions,
   actionSelectQuestions,
 } from '../../../../store/test/actions';
+// antd
+import { Table, Input, Radio } from 'antd';
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 
 /**
  * gen a test selection

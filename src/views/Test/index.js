@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+// store
 import { useSelector, useDispatch } from 'react-redux';
+import { actionAllQuestions } from '../../store/test/actions';
 // antd
 import { Spin } from 'antd';
 // css
@@ -7,8 +9,6 @@ import './index.scss';
 // exp gens
 import ExpGen from '../../plugins/ExpGen';
 import genQuestions from '../../plugins/genQuestions';
-// store
-import { actionAllQuestions } from '../../store/test/actions';
 // components
 import TestSection from './components/TestSection';
 import TestCtrl from './components/TestCtrl';

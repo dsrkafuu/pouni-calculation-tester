@@ -1,8 +1,11 @@
-import { Button, Space } from 'antd';
+import React from 'react';
 import { Link } from 'react-router-dom';
+// antd
+import { Button, Space } from 'antd';
+// css
 import HomeChecked from '../../assets/svg/HomeChecked.svg';
 import './index.scss';
-
+// comps
 import Footer from '../../components/Footer';
 
 /**

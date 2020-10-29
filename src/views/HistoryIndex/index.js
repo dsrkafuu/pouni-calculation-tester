@@ -1,10 +1,18 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-// antd
-import { Table, Button, Space } from 'antd';
 import { useRouteMatch, Link } from 'react-router-dom';
 // store
+import { useSelector, useDispatch } from 'react-redux';
 import { actionRemoveHistory } from '../../store/test/actions';
+// antd
+import { Table, Button, Space } from 'antd';
+import {
+  CloudDownloadOutlined,
+  CloudUploadOutlined,
+  DeleteOutlined,
+  FileDoneOutlined,
+} from '@ant-design/icons';
+// css
+import './index.scss';
 
 function HistoryIndex() {
   const dispatch = useDispatch();
@@ -17,30 +25,47 @@ function HistoryIndex() {
 
   return (
     <div className="history-index">
-      <Table
-        dataSource={history}
-        rowKey={(record) => record.historyID}
-        pagination={false}
-        size="small"
-        tableLayout="fixed"
-      >
-        <Table.Column title="ID" dataIndex="historyID" key="historyID" align="center" />
-        <Table.Column
-          title="控制"
-          key="control"
-          align="center"
-          render={(value, record, index) => (
-            <Space>
-              <Link to={`${match.path}/${record.historyID}`} component={Button} type="primary">
-                详情
-              </Link>
-              <Button danger={true} onClick={() => dispatch(actionRemoveHistory(index))}>
-                删除
-              </Button>
-            </Space>
-          )}
-        />
-      </Table>
+      <div className="history-wrapper">
+        <Table
+          dataSource={history}
+          rowKey={(record) => record.historyID}
+          pagination={false}
+          size="small"
+          tableLayout="fixed"
+        >
+          <Table.Column title="ID" dataIndex="historyID" key="historyID" align="center" />
+          <Table.Column
+            title="控制"
+            key="control"
+            align="center"
+            render={(value, record, index) => (
+              <Space>
+                <Link
+                  to={`${match.path}/${record.historyID}`}
+                  component={Button}
+                  type="primary"
+                  icon={<FileDoneOutlined />}
+                >
+                  详情
+                </Link>
+                <Button
+                  danger={true}
+                  onClick={() => dispatch(actionRemoveHistory(index))}
+                  icon={<DeleteOutlined />}
+                >
+                  删除
+                </Button>
+              </Space>
+            )}
+          />
+        </Table>
+      </div>
+      <div className="history-ctrl">
+        <div className="crtl-wrapper">
+          <Button size="large" icon={<CloudUploadOutlined />} />
+          <Button type="primary" size="large" icon={<CloudDownloadOutlined />} />
+        </div>
+      </div>
     </div>
   );
 }

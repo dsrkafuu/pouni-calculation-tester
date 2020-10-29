@@ -1,9 +1,9 @@
 import React from 'react';
+// store
 import { useSelector, useDispatch } from 'react-redux';
+import { actionQuestionSettings } from '../../../../store/start/actions';
 // antd
 import { Radio, Switch, Select } from 'antd';
-// store
-import { actionQuestionSettings } from '../../../../store/start/actions';
 
 function QuestionSettings() {
   const dispatch = useDispatch();

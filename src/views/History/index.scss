@@ -1,0 +1,23 @@
+@import '../../variables.scss';
+
+.history {
+  display: flex;
+  flex-wrap: nowrap;
+  .history-wrapper {
+    flex: 1 1 auto;
+    position: relative;
+  }
+  .history-ctrl {
+    flex: 0 0 auto;
+    .crtl-wrapper {
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+    }
+    .ant-btn {
+      margin: $margin-md;
+      margin-bottom: 0;
+    }
+  }
+}
