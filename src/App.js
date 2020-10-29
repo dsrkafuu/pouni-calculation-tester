@@ -14,6 +14,7 @@ import Start from './views/Start';
 import Test from './views/Test';
 import HistoryIndex from './views/HistoryIndex';
 import History from './views/History';
+import About from './views/About';
 
 // app main page (with history)
 const App = withRouter(({ history }) => {
@@ -61,7 +62,7 @@ const App = withRouter(({ history }) => {
           <Route path={`${match.path}/test`} component={Test} />
           <Route path={`${match.path}/history/:historyID`} component={History} />
           <Route path={`${match.path}/history`} component={HistoryIndex} />
-          <Route path={`${match.path}/about`}>关于</Route>
+          <Route path={`${match.path}/about`} component={About} />
           <Redirect to="/" />
         </Switch>
       </div>
