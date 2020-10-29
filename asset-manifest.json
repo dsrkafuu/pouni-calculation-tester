@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/pouni-calculation-tester/static/css/main.62809f5c.chunk.css",
-    "main.js": "/pouni-calculation-tester/static/js/main.16c936d5.chunk.js",
-    "main.js.map": "/pouni-calculation-tester/static/js/main.16c936d5.chunk.js.map",
+    "main.css": "/pouni-calculation-tester/static/css/main.05073d88.chunk.css",
+    "main.js": "/pouni-calculation-tester/static/js/main.633a0c38.chunk.js",
+    "main.js.map": "/pouni-calculation-tester/static/js/main.633a0c38.chunk.js.map",
     "runtime-main.js": "/pouni-calculation-tester/static/js/runtime-main.a1fd5ae7.js",
     "runtime-main.js.map": "/pouni-calculation-tester/static/js/runtime-main.a1fd5ae7.js.map",
-    "static/css/2.5b8f40d6.chunk.css": "/pouni-calculation-tester/static/css/2.5b8f40d6.chunk.css",
-    "static/js/2.9ee9398d.chunk.js": "/pouni-calculation-tester/static/js/2.9ee9398d.chunk.js",
-    "static/js/2.9ee9398d.chunk.js.map": "/pouni-calculation-tester/static/js/2.9ee9398d.chunk.js.map",
+    "static/css/2.fc8061c8.chunk.css": "/pouni-calculation-tester/static/css/2.fc8061c8.chunk.css",
+    "static/js/2.3fb04d5e.chunk.js": "/pouni-calculation-tester/static/js/2.3fb04d5e.chunk.js",
+    "static/js/2.3fb04d5e.chunk.js.map": "/pouni-calculation-tester/static/js/2.3fb04d5e.chunk.js.map",
     "index.html": "/pouni-calculation-tester/index.html",
-    "static/css/2.5b8f40d6.chunk.css.map": "/pouni-calculation-tester/static/css/2.5b8f40d6.chunk.css.map",
-    "static/css/main.62809f5c.chunk.css.map": "/pouni-calculation-tester/static/css/main.62809f5c.chunk.css.map",
-    "static/js/2.9ee9398d.chunk.js.LICENSE.txt": "/pouni-calculation-tester/static/js/2.9ee9398d.chunk.js.LICENSE.txt",
+    "static/css/2.fc8061c8.chunk.css.map": "/pouni-calculation-tester/static/css/2.fc8061c8.chunk.css.map",
+    "static/css/main.05073d88.chunk.css.map": "/pouni-calculation-tester/static/css/main.05073d88.chunk.css.map",
+    "static/js/2.3fb04d5e.chunk.js.LICENSE.txt": "/pouni-calculation-tester/static/js/2.3fb04d5e.chunk.js.LICENSE.txt",
     "static/media/HomeChecked.65863f2e.svg": "/pouni-calculation-tester/static/media/HomeChecked.65863f2e.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.a1fd5ae7.js",
-    "static/css/2.5b8f40d6.chunk.css",
-    "static/js/2.9ee9398d.chunk.js",
-    "static/css/main.62809f5c.chunk.css",
-    "static/js/main.16c936d5.chunk.js"
+    "static/css/2.fc8061c8.chunk.css",
+    "static/js/2.3fb04d5e.chunk.js",
+    "static/css/main.05073d88.chunk.css",
+    "static/js/main.633a0c38.chunk.js"
   ]
 }
