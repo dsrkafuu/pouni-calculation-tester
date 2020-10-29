@@ -36,6 +36,11 @@ const reducer = (prevState = defaultState, action) => {
     // update question types
     case UPDATE_QUESTION_TYPES: {
       const newState = prevState.mergeDeep(fromJS({ questionTypes: action.value }));
+      // prevent all 0
+      const { fillBlank, judge, select } = newState.toJS()['questionTypes'];
+      if (fillBlank === 0 && judge === 0 && select === 0) {
+        return prevState;
+      }
       ls.save('settings', newState.toJS());
       return newState;
     }

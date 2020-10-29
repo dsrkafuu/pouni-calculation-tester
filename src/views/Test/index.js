@@ -61,9 +61,15 @@ function Test() {
     <div className="test">
       <Spin spinning={loading}>
         <div className="test-wrapper">
-          <TestSection questions={fillBlankQuestions} questionType="fillBlank" />
-          <TestSection questions={judgeQuestions} questionType="judge" />
-          <TestSection questions={selectQuestions} questionType="select" />
+          {fillBlankQuestions.length > 0 && (
+            <TestSection questions={fillBlankQuestions} questionType="fillBlank" />
+          )}
+          {judgeQuestions.length > 0 && (
+            <TestSection questions={judgeQuestions} questionType="judge" />
+          )}
+          {selectQuestions.length > 0 && (
+            <TestSection questions={selectQuestions} questionType="select" />
+          )}
         </div>
       </Spin>
       <TestCtrl setLoading={setLoading} />
