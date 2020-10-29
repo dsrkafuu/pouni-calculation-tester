@@ -27,6 +27,43 @@ class CustomFile {
       console.error(e);
     }
   }
+
+  /**
+   * async load a json file
+   * @returns a promise
+   */
+  async load() {
+    return new Promise((resolve, reject) => {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'application/json';
+      input.style.display = 'none';
+      input.addEventListener('change', () => {
+        if (input.files.length > 0) {
+          // get the json file
+          const file = input.files[0];
+          if (file.type.includes('json')) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              const res = e.target.result;
+              try {
+                const obj = JSON.parse(res);
+                resolve(obj);
+              } catch (e) {
+                reject(e);
+              }
+            };
+            reader.readAsText(file);
+          } else {
+            reject(new Error('wrong file MIME type'));
+          }
+        } else {
+          reject(new Error('no file selected'));
+        }
+      });
+      input.click();
+    });
+  }
 }
 
 export default CustomFile;

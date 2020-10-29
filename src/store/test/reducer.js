@@ -6,6 +6,7 @@ import {
   UPDATE_JUDGE_QUESTIONS,
   UPDATE_SELECT_QUESTIONS,
   REMOVE_HISTORY,
+  LOAD_HISTORY,
 } from './actions';
 // dayjs
 import * as dayjs from 'dayjs';
@@ -93,6 +94,12 @@ const reducer = (prevState = defaultState, action) => {
     case REMOVE_HISTORY: {
       const oldList = prevState.get('history');
       const newList = oldList.splice(action.value, 1);
+      ls.save('history', newList.toJS());
+      return prevState.set('history', newList);
+    }
+    case LOAD_HISTORY: {
+      const newList = fromJS(action.value);
+      ls.save('history', newList.toJS());
       return prevState.set('history', newList);
     }
     // first init

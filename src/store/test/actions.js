@@ -50,3 +50,12 @@ export const actionRemoveHistory = (value) => {
     value,
   };
 };
+
+// load history (from file)
+export const LOAD_HISTORY = 'LOAD_HISTORY';
+export const actionLoadHistory = (value) => {
+  return {
+    type: LOAD_HISTORY,
+    value,
+  };
+};

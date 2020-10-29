@@ -4,7 +4,7 @@ import { useRouteMatch, Link } from 'react-router-dom';
 import * as dayjs from 'dayjs';
 // store
 import { useSelector, useDispatch } from 'react-redux';
-import { actionRemoveHistory } from '../../store/test/actions';
+import { actionRemoveHistory, actionLoadHistory } from '../../store/test/actions';
 // antd
 import { Table, Button, Space } from 'antd';
 import {
@@ -79,7 +79,14 @@ function HistoryIndex() {
       </div>
       <div className="history-ctrl">
         <div className="crtl-wrapper">
-          <Button size="large" icon={<CloudUploadOutlined />} />
+          <Button
+            size="large"
+            icon={<CloudUploadOutlined />}
+            onClick={async () => {
+              const obj = await cf.load();
+              dispatch(actionLoadHistory(obj));
+            }}
+          />
           <Button
             type="primary"
             size="large"
