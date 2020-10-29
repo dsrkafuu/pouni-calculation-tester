@@ -74,7 +74,7 @@ function HistoryIndex() {
                 </Link>
                 <Button
                   danger={true}
-                  onClick={() => dispatch(actionRemoveHistory(index))}
+                  onClick={() => dispatch(actionRemoveHistory(record.historyID))}
                   icon={<DeleteOutlined />}
                 >
                   删除

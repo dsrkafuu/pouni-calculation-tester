@@ -96,12 +96,24 @@ const reducer = (prevState = defaultState, action) => {
       ls.save('history', newList.toJS());
       return prevState.set('history', newList);
     }
-    // remove a history p: index
+    // remove a history p: historyID
     case REMOVE_HISTORY: {
-      const oldList = prevState.get('history');
-      const newList = oldList.splice(action.value, 1);
-      ls.save('history', newList.toJS());
-      return prevState.set('history', newList);
+      const oldList = prevState.get('history').toJS();
+      // find history id's index
+      let index = -1;
+      oldList.forEach((val, i) => {
+        if (action.value === val.historyID) {
+          index = i;
+        }
+      });
+      if (index > 0) {
+        oldList.splice(index, 1);
+        const newList = fromJS(oldList);
+        ls.save('history', newList.toJS());
+        return prevState.set('history', newList);
+      } else {
+        return prevState;
+      }
     }
     case LOAD_HISTORY: {
       const newList = fromJS(action.value);

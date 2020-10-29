@@ -41,7 +41,7 @@ function History() {
           <HistorySection questions={selectQuestions} questionType="select" />
         )}
       </div>
-      <HistoryCtrl />
+      <HistoryCtrl historyID={+historyID} />
     </div>
   );
 }
