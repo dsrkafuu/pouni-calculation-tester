@@ -10,7 +10,7 @@ import {
   CheckOutlined,
   CloseOutlined,
   DeleteOutlined,
-  CloudDownloadOutlined,
+  ShareAltOutlined,
 } from '@ant-design/icons';
 // css
 import './index.scss';
@@ -123,7 +123,7 @@ function History() {
       <div className="history-ctrl">
         <div className="crtl-wrapper">
           <Button size="large" icon={<DeleteOutlined />} danger={true} />
-          <Button type="primary" size="large" icon={<CloudDownloadOutlined />} />
+          <Button type="primary" size="large" icon={<ShareAltOutlined />} />
         </div>
       </div>
     </div>
