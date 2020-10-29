@@ -49,8 +49,8 @@ function HistorySection(props) {
     userAnsRender = (record) => renderAnswer(record.userAns);
   } else {
     columnTitle = '选择题目';
-    ansRender = 'ans';
-    userAnsRender = 'userAns';
+    ansRender = (record) => record.selections[record.ans];
+    userAnsRender = (record) => record.selections[record.userAns];
   }
 
   return (
