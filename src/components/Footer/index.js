@@ -1,7 +1,12 @@
 import React from 'react';
+// antd
 import { Divider } from 'antd';
 import { CopyrightOutlined, AntDesignOutlined } from '@ant-design/icons';
 
+/**
+ * global footer
+ * @param {boolean} divider
+ */
 function Footer(props) {
   return (
     <div className="footer">
@@ -13,7 +18,7 @@ function Footer(props) {
         </div>
         <div>
           <AntDesignOutlined />
-          <span>&nbsp;NJUPTB18030620 | 2020.10.26</span>
+          <span>&nbsp;NJUPTB18030620</span>
         </div>
       </div>
     </div>

@@ -35,6 +35,7 @@ function TestCtrl(props) {
           onConfirm={() => {
             setLoading(true);
             dispatch(actionAllQuestions(null));
+            message.success('已重新生成');
           }}
           onCancel={() => message.error('已取消重新生成')}
         >

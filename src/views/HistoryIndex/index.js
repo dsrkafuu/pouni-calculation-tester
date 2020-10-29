@@ -6,7 +6,7 @@ import * as dayjs from 'dayjs';
 import { useSelector, useDispatch } from 'react-redux';
 import { actionRemoveHistory, actionLoadHistory } from '../../store/test/actions';
 // antd
-import { Table, Button, Space } from 'antd';
+import { Table, Button, Space, Popconfirm, message } from 'antd';
 import {
   CloudDownloadOutlined,
   CloudUploadOutlined,
@@ -17,7 +17,7 @@ import {
 import './index.scss';
 // file loader and saver
 import CustomFile from '../../plugins/CustomFile';
-const customFile = new CustomFile();
+const cf = new CustomFile();
 
 function HistoryIndex() {
   const dispatch = useDispatch();
@@ -62,7 +62,7 @@ function HistoryIndex() {
             title="控制"
             key="control"
             align="center"
-            render={(value, record, index) => (
+            render={(record) => (
               <Space>
                 <Link
                   to={`${match.path}/${record.historyID}`}
@@ -72,13 +72,19 @@ function HistoryIndex() {
                 >
                   详情
                 </Link>
-                <Button
-                  danger={true}
-                  onClick={() => dispatch(actionRemoveHistory(record.historyID))}
-                  icon={<DeleteOutlined />}
+                <Popconfirm
+                  placement="bottom"
+                  title="确定要删除本条记录吗"
+                  onConfirm={() => {
+                    dispatch(actionRemoveHistory(record.historyID));
+                    message.success('已删除本条记录');
+                  }}
+                  onCancel={() => message.error('已取消删除本条记录')}
                 >
-                  删除
-                </Button>
+                  <Button danger={true} icon={<DeleteOutlined />}>
+                    删除
+                  </Button>
+                </Popconfirm>
               </Space>
             )}
           />
@@ -90,7 +96,7 @@ function HistoryIndex() {
             size="large"
             icon={<CloudUploadOutlined />}
             onClick={async () => {
-              const obj = await customFile.load();
+              const obj = await cf.load();
               dispatch(actionLoadHistory(obj));
             }}
           />
@@ -98,7 +104,7 @@ function HistoryIndex() {
             type="primary"
             size="large"
             icon={<CloudDownloadOutlined />}
-            onClick={() => customFile.save(history)}
+            onClick={() => cf.save(history)}
           />
         </div>
       </div>

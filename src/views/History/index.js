@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 // store
 import { useSelector } from 'react-redux';
 // css
@@ -8,6 +8,7 @@ import './index.scss';
 import HistoryCtrl from './components/HistoryCtrl';
 import HistorySection from './components/HistorySection';
 
+// single history page
 function History() {
   // get current history id
   const { historyID } = useParams();
@@ -20,10 +21,7 @@ function History() {
       history = val;
     }
   });
-  // if this index do not exist
-  // const h = useHistory();
-  // !history && h.push('/app/history');
-  // else get questions
+  // get questions
   let fillBlankQuestions = [];
   let judgeQuestions = [];
   let selectQuestions = [];

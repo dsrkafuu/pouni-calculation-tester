@@ -8,9 +8,7 @@ import './index.scss';
 // comps
 import Footer from '../../components/Footer';
 
-/**
- * home page
- */
+// home page
 function Home() {
   return (
     <div className="home">

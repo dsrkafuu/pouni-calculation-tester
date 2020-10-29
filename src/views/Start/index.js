@@ -8,6 +8,7 @@ import QuestionType from './components/QuestionType';
 import QuestionSettings from './components/QuestionSettings';
 import QuestionCtrl from './components/QuestionCtrl';
 
+// start page
 function Start() {
   return (
     <div className="start">
