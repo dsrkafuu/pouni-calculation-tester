@@ -27,7 +27,6 @@ function HistoryCtrl(props) {
             h.push('/app/history');
             message.success('已删除本条记录');
           }}
-          onCancel={() => message.error('已取消删除本条记录')}
         >
           <Button size="large" icon={<DeleteOutlined />} danger={true} />
         </Popconfirm>

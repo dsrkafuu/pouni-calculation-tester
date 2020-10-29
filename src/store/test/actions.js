@@ -59,3 +59,9 @@ export const actionLoadHistory = (value) => {
     value,
   };
 };
+
+// clean cache
+export const CLEAN_HISTORY_CACHE = 'CLEAN_HISTORY_CACHE';
+export const actionCleanHistoryCache = () => ({
+  type: CLEAN_HISTORY_CACHE,
+});

@@ -79,7 +79,6 @@ function HistoryIndex() {
                     dispatch(actionRemoveHistory(record.historyID));
                     message.success('已删除本条记录');
                   }}
-                  onCancel={() => message.error('已取消删除本条记录')}
                 >
                   <Button danger={true} icon={<DeleteOutlined />}>
                     删除

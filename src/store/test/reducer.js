@@ -7,6 +7,7 @@ import {
   UPDATE_SELECT_QUESTIONS,
   REMOVE_HISTORY,
   LOAD_HISTORY,
+  CLEAN_HISTORY_CACHE,
 } from './actions';
 // dayjs
 import * as dayjs from 'dayjs';
@@ -119,6 +120,10 @@ const reducer = (prevState = defaultState, action) => {
       const newList = fromJS(action.value);
       ls.save('history', newList.toJS());
       return prevState.set('history', newList);
+    }
+    case CLEAN_HISTORY_CACHE: {
+      ls.save('history', null);
+      return defaultState;
     }
     // first init
     default: {

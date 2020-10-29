@@ -37,7 +37,6 @@ function TestCtrl(props) {
             dispatch(actionAllQuestions(null));
             message.success('已重新生成');
           }}
-          onCancel={() => message.error('已取消重新生成')}
         >
           <Button size="large" icon={<RedoOutlined />} danger={true} />
         </Popconfirm>
@@ -49,7 +48,6 @@ function TestCtrl(props) {
             message.success('提交成功');
             history.push(`/app/history/${ID}`);
           }}
-          onCancel={() => message.error('已取消提交')}
         >
           <Button type="primary" size="large" icon={<LoginOutlined />} />
         </Popconfirm>

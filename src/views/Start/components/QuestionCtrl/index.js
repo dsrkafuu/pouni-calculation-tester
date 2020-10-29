@@ -1,15 +1,31 @@
 import React from 'react';
 // antd
-import { Button, Space } from 'antd';
+import { Button, Space, Popconfirm, message } from 'antd';
 import { RestOutlined, GithubOutlined } from '@ant-design/icons';
+// store
+import { useDispatch } from 'react-redux';
+import { actionCleanSettingsCache } from '../../../../store/start/actions';
+import { actionCleanHistoryCache } from '../../../../store/test/actions';
 
 // question control question
 function QuestionCtrl() {
+  const dispatch = useDispatch();
+
   return (
     <div className="question-ctrl">
       <h3 className="question-ctrl-func">全局功能</h3>
       <Space>
-        <Button icon={<RestOutlined />}>清除缓存</Button>
+        <Popconfirm
+          placement="bottom"
+          title="确定要清除数据吗"
+          onConfirm={() => {
+            dispatch(actionCleanSettingsCache());
+            dispatch(actionCleanHistoryCache());
+            message.success('已清除数据');
+          }}
+        >
+          <Button icon={<RestOutlined />}>清除数据</Button>
+        </Popconfirm>
         <Button
           icon={<GithubOutlined />}
           href="https://github.com/amzrk2/pouni-calculation-tester"

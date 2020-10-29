@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { UPDATE_QUESTION_TYPES, UPDATE_QUESTION_SETTINGSS } from './actions';
+import { UPDATE_QUESTION_TYPES, UPDATE_QUESTION_SETTINGSS, CLEAN_SETTINGS_CACHE } from './actions';
 // ls
 import LocalStorage from '../../plugins/LocalStorage';
 const ls = new LocalStorage();
@@ -57,12 +57,17 @@ const reducer = (prevState = defaultState, action) => {
       ls.save('settings', newState.toJS());
       return newState;
     }
+    // clean cache
+    case CLEAN_SETTINGS_CACHE: {
+      ls.save('settings', null);
+      return defaultState;
+    }
     // first init
     default: {
       const settings = ls.load('settings');
       if (settings) {
         // load from storage
-        return fromJS(settings);
+        return prevState.mergeDeep(fromJS(settings));
       } else {
         // init data
         return prevState;
