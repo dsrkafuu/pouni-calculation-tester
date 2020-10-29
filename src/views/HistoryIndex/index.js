@@ -1,5 +1,7 @@
 import React from 'react';
 import { useRouteMatch, Link } from 'react-router-dom';
+// dayjs
+import * as dayjs from 'dayjs';
 // store
 import { useSelector, useDispatch } from 'react-redux';
 import { actionRemoveHistory } from '../../store/test/actions';
@@ -41,10 +43,10 @@ function HistoryIndex() {
             width="15%"
           />
           <Table.Column
-            title="日期"
+            title="日期/时间"
             key="date"
             align="center"
-            render={(value) => value.date.toLocaleString()}
+            render={(value) => dayjs(value.date).format('YYYY-MM-DD HH:mm')}
           />
           <Table.Column
             title="控制"

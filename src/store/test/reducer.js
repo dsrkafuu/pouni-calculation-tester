@@ -7,6 +7,11 @@ import {
   UPDATE_SELECT_QUESTIONS,
   REMOVE_HISTORY,
 } from './actions';
+// dayjs
+import * as dayjs from 'dayjs';
+// ls
+import LocalStorage from '../../plugins/LocalStorage';
+const ls = new LocalStorage();
 
 const defaultState = fromJS({
   fillBlankQuestions: [],
@@ -71,7 +76,7 @@ const reducer = (prevState = defaultState, action) => {
           judgeQuestions: prevState.get('judgeQuestions').toJS(),
           selectQuestions: prevState.get('selectQuestions').toJS(),
         },
-        date: new Date(),
+        date: dayjs().toJSON(),
       };
       // check answers
       Object.keys(newHistory.historyQuestions).forEach((key) => {
@@ -81,6 +86,7 @@ const reducer = (prevState = defaultState, action) => {
       });
       // add a history
       const newList = oldList.push(fromJS(newHistory));
+      ls.save('history', newList.toJS());
       return prevState.set('history', newList);
     }
     // remove a history p: index
@@ -89,9 +95,18 @@ const reducer = (prevState = defaultState, action) => {
       const newList = oldList.splice(action.value, 1);
       return prevState.set('history', newList);
     }
-    // init
-    default:
-      return prevState;
+    // first init
+    default: {
+      const newState = prevState;
+      const lsHistory = ls.load('history');
+      if (lsHistory) {
+        // load from storage
+        return newState.set('history', fromJS(lsHistory));
+      } else {
+        // init data
+        return newState;
+      }
+    }
   }
 };
 
