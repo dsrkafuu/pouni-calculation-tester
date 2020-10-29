@@ -17,7 +17,7 @@ import {
 import './index.scss';
 // file loader and saver
 import CustomFile from '../../plugins/CustomFile';
-const cf = new CustomFile();
+const customFile = new CustomFile();
 
 function HistoryIndex() {
   const dispatch = useDispatch();
@@ -90,7 +90,7 @@ function HistoryIndex() {
             size="large"
             icon={<CloudUploadOutlined />}
             onClick={async () => {
-              const obj = await cf.load();
+              const obj = await customFile.load();
               dispatch(actionLoadHistory(obj));
             }}
           />
@@ -98,7 +98,7 @@ function HistoryIndex() {
             type="primary"
             size="large"
             icon={<CloudDownloadOutlined />}
-            onClick={() => cf.save(history)}
+            onClick={() => customFile.save(history)}
           />
         </div>
       </div>

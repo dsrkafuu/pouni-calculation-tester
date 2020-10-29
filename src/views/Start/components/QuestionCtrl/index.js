@@ -3,6 +3,7 @@ import React from 'react';
 import { Button, Space } from 'antd';
 import { RestOutlined, GithubOutlined } from '@ant-design/icons';
 
+// question control question
 function QuestionCtrl() {
   return (
     <div className="question-ctrl">

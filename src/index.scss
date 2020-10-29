@@ -1,6 +1,6 @@
 @import './variables.scss';
 
-/* global rules */
+// global rules
 html,
 body {
   font-size: $font-size-base;
@@ -42,6 +42,7 @@ strong,
   }
 }
 
+// footer style
 .footer-content {
   flex: 0 0 auto;
   display: flex;

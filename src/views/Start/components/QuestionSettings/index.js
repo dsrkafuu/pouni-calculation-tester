@@ -5,12 +5,15 @@ import { actionQuestionSettings } from '../../../../store/start/actions';
 // antd
 import { Radio, Switch, Select } from 'antd';
 
+// question settings section
 function QuestionSettings() {
+  // store dispatch
   const dispatch = useDispatch();
   // get settings data
   const settings = useSelector((state) => state.getIn(['start', 'questionSettings']).toJS());
-  // get custom data
+  // che if is custom mode
   const isCustom = settings.hhc === 'custom';
+
   /**
    * update hhc
    * @param {event} e

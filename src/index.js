@@ -1,19 +1,18 @@
-// deps
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
 // css
 import 'normalize.css';
 import './index.scss';
-// antd config provider
+// antd
 import { ConfigProvider } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
+// store
+import { Provider } from 'react-redux';
+import store from './store';
 // views
 import Home from './views/Home';
 import App from './App';
-// store
-import store from './store';
 
 ReactDOM.render(
   <Provider store={store}>

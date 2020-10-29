@@ -15,13 +15,11 @@ import Test from './views/Test';
 import HistoryIndex from './views/HistoryIndex';
 import History from './views/History';
 
-/**
- * app main page
- */
+// app main page (with history)
 const App = withRouter(({ history }) => {
   // router match
   const match = useRouteMatch();
-  // menu items
+  // main menu items
   const menuItems = [
     {
       key: 'start',

@@ -27,9 +27,10 @@ const renderStatus = (status) =>
   );
 /**
  * answer render
+ * fix: prevent null rendered to CloseOutlined
  * @param {boolean} ans
  */
-const renderAnswer = (ans) => (ans ? <CheckOutlined /> : <CloseOutlined />);
+const renderAnswer = (ans) => (ans === false ? <CloseOutlined /> : <CheckOutlined />);
 
 function History() {
   // get current history id

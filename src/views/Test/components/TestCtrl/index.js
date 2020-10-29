@@ -18,6 +18,7 @@ function TestCtrl(props) {
   const { setLoading } = props;
   // get history
   const qHistory = useSelector((state) => state.getIn(['test', 'history']).toJS());
+  // gen id jump to
   let ID;
   if (history[qHistory.length - 1]) {
     ID = history[qHistory.length - 1].historyID + 1;
@@ -28,17 +29,20 @@ function TestCtrl(props) {
   return (
     <div className="test-ctrl">
       <div className="crtl-wrapper">
-        <Button
-          size="large"
-          icon={<RedoOutlined />}
-          danger={true}
-          onClick={() => {
-            setLoading(true);
-            return dispatch(actionAllQuestions(null));
-          }}
-        />
         <Popconfirm
-          title="确定要提交答案吗?"
+          placement="bottom"
+          title="确定要重新生成题目吗"
+          onConfirm={() => {
+            setLoading(true);
+            dispatch(actionAllQuestions(null));
+          }}
+          onCancel={() => message.error('已取消重新生成')}
+        >
+          <Button size="large" icon={<RedoOutlined />} danger={true} />
+        </Popconfirm>
+        <Popconfirm
+          placement="bottom"
+          title="确定要提交答案吗"
           onConfirm={() => {
             dispatch(actionSaveAllQuestion());
             message.success('提交成功');

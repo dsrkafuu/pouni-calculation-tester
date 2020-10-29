@@ -12,7 +12,8 @@ import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 
 /**
  * gen a test selection
- * @param {object} props
+ * @param {object} questions question array
+ * @param {object} questionType question type of this array
  */
 function TestSection(props) {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function TestSection(props) {
   // check question type
   let columnTitle = '';
   let columnRender = null;
+  // different render func
   if (questionType === 'fillBlank') {
     columnTitle = '填空';
     columnRender = (record) => (
