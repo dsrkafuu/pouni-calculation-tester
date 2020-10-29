@@ -20,10 +20,16 @@ const renderStatus = (status) =>
   );
 /**
  * answer render
- * fix: prevent null rendered to CloseOutlined
+ * fix: prevent null rendered as CloseOutlined
  * @param {boolean} ans
  */
-const renderAnswer = (ans) => (ans === false ? <CloseOutlined /> : <CheckOutlined />);
+const renderAnswer = (ans) => {
+  if (ans === null || ans === undefined) {
+    return '';
+  } else {
+    return ans === false ? <CloseOutlined /> : <CheckOutlined />;
+  }
+};
 
 /**
  * gen a history selection
