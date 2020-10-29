@@ -2,35 +2,11 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 // store
 import { useSelector } from 'react-redux';
-// antd
-import { Table, Button } from 'antd';
-import {
-  CheckCircleTwoTone,
-  CloseCircleTwoTone,
-  CheckOutlined,
-  CloseOutlined,
-  DeleteOutlined,
-  ShareAltOutlined,
-} from '@ant-design/icons';
 // css
 import './index.scss';
-
-/**
- * status render
- * @param {boolean} status
- */
-const renderStatus = (status) =>
-  status ? (
-    <CheckCircleTwoTone twoToneColor="#52c41a" />
-  ) : (
-    <CloseCircleTwoTone twoToneColor="#ff7875" />
-  );
-/**
- * answer render
- * fix: prevent null rendered to CloseOutlined
- * @param {boolean} ans
- */
-const renderAnswer = (ans) => (ans === false ? <CloseOutlined /> : <CheckOutlined />);
+// comps
+import HistoryCtrl from './components/HistoryCtrl';
+import HistorySection from './components/HistorySection';
 
 function History() {
   // get current history id
@@ -55,78 +31,17 @@ function History() {
   return (
     <div className="history">
       <div className="history-wrapper">
-        <Table
-          dataSource={fillBlankQuestions}
-          rowKey={(record) => record.index}
-          pagination={false}
-          size="small"
-          tableLayout="fixed"
-        >
-          <Table.Column title="填空题目" dataIndex="exp" key="exp" align="center" width="50%" />
-          <Table.Column title="正确答案" dataIndex="ans" key="ans" align="center" />
-          <Table.Column title="你的答案" dataIndex="userAns" key="userAns" align="center" />
-          <Table.Column
-            title="状态"
-            key="status"
-            align="center"
-            render={(record) => renderStatus(record.status)}
-            width="10%"
-          />
-        </Table>
-        <Table
-          dataSource={judgeQuestions}
-          rowKey={(record) => record.index}
-          pagination={false}
-          size="small"
-          tableLayout="fixed"
-        >
-          <Table.Column title="判断题目" dataIndex="exp" key="exp" align="center" width="50%" />
-          <Table.Column
-            title="正确答案"
-            dataIndex="ans"
-            key="ans"
-            align="center"
-            render={(record) => renderAnswer(record.ans)}
-          />
-          <Table.Column
-            title="你的答案"
-            key="userAns"
-            align="center"
-            render={(record) => renderAnswer(record.userAns)}
-          />
-          <Table.Column
-            title="状态"
-            key="status"
-            align="center"
-            render={(record) => renderStatus(record.status)}
-            width="10%"
-          />
-        </Table>
-        <Table
-          dataSource={selectQuestions}
-          rowKey={(record) => record.index}
-          pagination={false}
-          size="small"
-          tableLayout="fixed"
-        >
-          <Table.Column title="选择题目" dataIndex="exp" key="exp" align="center" width="50%" />
-          <Table.Column title="正确答案" dataIndex="ans" key="ans" align="center" />
-          <Table.Column title="你的答案" dataIndex="userAns" key="userAns" align="center" />
-          <Table.Column
-            title="状态"
-            key="status"
-            align="center"
-            render={(record) => renderStatus(record.status)}
-            width="10%"
-          />
-        </Table>
+        {fillBlankQuestions.length > 0 && (
+          <HistorySection questions={fillBlankQuestions} questionType="fillBlank" />
+        )}
+        {judgeQuestions.length > 0 && (
+          <HistorySection questions={judgeQuestions} questionType="judge" />
+        )}
+        {selectQuestions.length > 0 && (
+          <HistorySection questions={selectQuestions} questionType="select" />
+        )}
       </div>
-      <div className="history-ctrl">
-        <div className="crtl-wrapper">
-          <Button size="large" icon={<DeleteOutlined />} danger={true} />
-          <Button type="primary" size="large" icon={<ShareAltOutlined />} />
-        </div>
-      </div>
+      <HistoryCtrl />
     </div>
   );
 }
