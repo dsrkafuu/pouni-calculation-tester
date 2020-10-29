@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 // antd
 import { Button } from 'antd';
 import { DeleteOutlined, ShareAltOutlined } from '@ant-design/icons';
@@ -13,6 +14,7 @@ import { actionRemoveHistory } from '../../../../store/test/actions';
 function HistoryCtrl(props) {
   const dispatch = useDispatch();
   const { historyID } = props;
+  const h = useHistory();
 
   return (
     <div className="history-ctrl">
@@ -21,7 +23,10 @@ function HistoryCtrl(props) {
           size="large"
           icon={<DeleteOutlined />}
           danger={true}
-          onClick={() => dispatch(actionRemoveHistory(historyID))}
+          onClick={() => {
+            dispatch(actionRemoveHistory(historyID));
+            h.push('/app/history');
+          }}
         />
         <Button type="primary" size="large" icon={<ShareAltOutlined />} />
       </div>

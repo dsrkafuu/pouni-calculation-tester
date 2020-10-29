@@ -106,7 +106,7 @@ const reducer = (prevState = defaultState, action) => {
           index = i;
         }
       });
-      if (index > 0) {
+      if (index >= 0) {
         oldList.splice(index, 1);
         const newList = fromJS(oldList);
         ls.save('history', newList.toJS());

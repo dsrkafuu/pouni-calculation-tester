@@ -21,8 +21,8 @@ function History() {
     }
   });
   // if this index do not exist
-  const h = useHistory();
-  !history && h.push('/app/history');
+  // const h = useHistory();
+  // !history && h.push('/app/history');
   // else get questions
   let fillBlankQuestions = [];
   let judgeQuestions = [];
