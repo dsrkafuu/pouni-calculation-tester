@@ -71,6 +71,7 @@ const reducer = (prevState = defaultState, action) => {
           judgeQuestions: prevState.get('judgeQuestions').toJS(),
           selectQuestions: prevState.get('selectQuestions').toJS(),
         },
+        date: new Date(),
       };
       // check answers
       Object.keys(newHistory.historyQuestions).forEach((key) => {

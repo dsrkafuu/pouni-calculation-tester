@@ -33,7 +33,19 @@ function HistoryIndex() {
           size="small"
           tableLayout="fixed"
         >
-          <Table.Column title="ID" dataIndex="historyID" key="historyID" align="center" />
+          <Table.Column
+            title="ID"
+            dataIndex="historyID"
+            key="historyID"
+            align="center"
+            width="15%"
+          />
+          <Table.Column
+            title="日期"
+            key="date"
+            align="center"
+            render={(value) => value.date.toLocaleString()}
+          />
           <Table.Column
             title="控制"
             key="control"
