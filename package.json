@@ -1,7 +1,7 @@
 {
   "name": "pouni-calculation-tester",
   "version": "1.0.0",
-  "private": true,
+  "license": "Apache-2.0",
   "homepage": "/pouni-calculation-tester/",
   "dependencies": {
     "@ant-design/icons": "~4.2.2",
