@@ -12,6 +12,16 @@
 
 React (with Hooks)。设置页面根据设置进行题目生成后，将结果于题目存于 store 中。做题完成后进行比对，结果保存至 store 同时于 localStorage 进行同步，提供结果下载。
 
+## 开发
+
+### `npm start`
+
+在 [http://localhost:3000/pouni-calculation-tester/](http://localhost:3000/pouni-calculation-tester/) 运行开发服务器。
+
+### `npm run build`
+
+将项目编译至 `build` 文件夹。
+
 ### 设计细节
 
 #### 表达式生成
@@ -60,16 +70,6 @@ React (with Hooks)。设置页面根据设置进行题目生成后，将结果�
 - 删除当前历史记录后自动跳转回列表
 - 404 页面首页跳转
 - 为了避免做到途中的题目数据被删除，修改生成设置后需要在右侧控制栏手动拉取新生成的题目
-
-## 开发
-
-### `npm start`
-
-在 [http://localhost:3000](http://localhost:3000) 运行开发服务器。
-
-### `npm run build`
-
-将项目编译至 `build` 文件夹。
 
 ## LICENSE
 
