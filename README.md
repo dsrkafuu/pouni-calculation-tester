@@ -6,7 +6,7 @@
 
 设计一款四则运算的自测软件，可用于小学生的四则运算训练。
 
-在线预览 (GitHub Pages)：<https://github.amzrk2.cc/pouni-calculation-tester/>
+在线预览 (GitHub Pages)：<https://gh.amzrk2.cc/pouni-calculation-tester/>
 
 ### 基本思路
 
