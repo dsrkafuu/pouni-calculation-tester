@@ -6,7 +6,7 @@
 
 设计一款四则运算的自测软件，可用于小学生的四则运算训练。
 
-在线预览 (GitHub Pages)：<https://gh.amzrk2.cc/pouni-calculation-tester/>
+在线预览 (GitHub Pages)：<https://github.dsrkafuu.su/pouni-calculation-tester/>
 
 ### 基本思路
 
@@ -73,6 +73,6 @@ React (with Hooks)。设置页面根据设置进行题目生成后，将结果�
 
 ## LICENSE
 
-The project is released under the `Apache License 2.0`, for more information read the [LICENSE](https://github.com/amzrk2/pouni-calculation-tester/blob/main/LICENSE).
+The project is released under the `Apache License 2.0`, for more information read the [LICENSE](https://github.com/dsrkafuu/pouni-calculation-tester/blob/main/LICENSE).
 
-> Copyright © 2020 DSRKafuU(NJUPTB18030620) <https://amzrk2.cc/>
+> Copyright © 2020 DSRKafuU(NJUPTB18030620) <https://dsrkafuu.su/>
